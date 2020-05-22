@@ -20,6 +20,8 @@ interface ConfigurationPluginInterface extends PluginInterface
      * @param BuildConfigInterface $buildConfig The build configuration.
      *
      * @return TaskRunnerInterface[]
+     *
+     * @psalm-return \Generator<int, TaskRunnerInterface>
      */
     public function processConfig(array $config, BuildConfigInterface $buildConfig): iterable;
 }
