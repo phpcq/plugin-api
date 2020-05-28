@@ -7,17 +7,18 @@ namespace Phpcq\PluginApi\Version10;
 interface TaskFactoryInterface
 {
     /**
+     * @param string   $toolName
      * @param string[] $command
      *
      * @return TaskRunnerBuilderInterface
      */
-    public function buildRunProcess(array $command): TaskRunnerBuilderInterface;
+    public function buildRunProcess(string $toolName, array $command): TaskRunnerBuilderInterface;
 
     /**
-     * @param string   $pharName
+     * @param string   $toolName
      * @param string[] $arguments
      *
      * @return TaskRunnerBuilderInterface
      */
-    public function buildRunPhar(string $pharName, array $arguments = []): TaskRunnerBuilderInterface;
+    public function buildRunPhar(string $toolName, array $arguments = []): TaskRunnerBuilderInterface;
 }

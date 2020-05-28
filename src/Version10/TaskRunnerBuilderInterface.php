@@ -43,6 +43,24 @@ interface TaskRunnerBuilderInterface
     public function withTimeout($timeout): TaskRunnerBuilderInterface;
 
     /**
+     * Use a custom post processor.
+     *
+     * @param PostProcessorInterface $postProcessor The custom post processor
+     *
+     * @return TaskRunnerBuilderInterface
+     */
+    public function withPostProcessor(PostProcessorInterface $postProcessor): TaskRunnerBuilderInterface;
+
+    /**
+     * Use the built in checkstyle file processor which imports a given checkstyle file.
+     *
+     * @param string $checkstyleFile Absolute path to the checkstyle file
+     *
+     * @return TaskRunnerBuilderInterface
+     */
+    public function withCheckstyleFilePostProcessor(string $checkstyleFile): TaskRunnerBuilderInterface;
+
+    /**
      * Build the task runner.
      *
      * @return TaskRunnerInterface
