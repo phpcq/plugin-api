@@ -12,8 +12,8 @@ namespace Phpcq\PluginApi\Version10;
 interface PostProcessorInterface
 {
     public function process(
-        ReportInterface $report,
-        array $consoleOutput,
+        ToolReportInterface $report,
+        string $consoleOutput,
         int $exitCode,
         OutputInterface $output
     ) : void;

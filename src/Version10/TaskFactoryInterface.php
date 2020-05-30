@@ -21,4 +21,11 @@ interface TaskFactoryInterface
      * @return TaskRunnerBuilderInterface
      */
     public function buildRunPhar(string $toolName, array $arguments = []): TaskRunnerBuilderInterface;
+
+    /**
+     * @param string $toolName
+     *
+     * @return ToolReportInterface
+     */
+    public function createToolReport(string $toolName): ToolReportInterface;
 }
