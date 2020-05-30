@@ -52,15 +52,6 @@ interface TaskRunnerBuilderInterface
     public function withPostProcessor(PostProcessorInterface $postProcessor): TaskRunnerBuilderInterface;
 
     /**
-     * Use the built in checkstyle file processor which imports a given checkstyle file.
-     *
-     * @param string $checkstyleFile Absolute path to the checkstyle file
-     *
-     * @return TaskRunnerBuilderInterface
-     */
-    public function withCheckstyleFilePostProcessor(string $checkstyleFile): TaskRunnerBuilderInterface;
-
-    /**
      * Build the task runner.
      *
      * @return TaskRunnerInterface
