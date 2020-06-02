@@ -31,9 +31,9 @@ interface BuildConfigInterface
      * Obtain an unique temp file name.
      *
      * @param PluginInterface|null $plugin Optional plugin to use in file name prefix.
-     * @param string|null          $prefix Optional manual prefix to use in file name prefix.
+     * @param string|null          $suffix Optional manual suffix to use in file name.
      *
      * @return string
      */
-    public function getUniqueTempFile(?PluginInterface $plugin = null, ?string $prefix = null): string;
+    public function getUniqueTempFile(?PluginInterface $plugin = null, ?string $suffix = null): string;
 }
