@@ -17,7 +17,7 @@ use function substr;
  *
  * Provides static reading of the log and usage as post processor.
  */
-class CheckstyleReportAppender
+final class CheckstyleReportAppender
 {
     use XmlReportAppenderTrait;
 

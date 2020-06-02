@@ -14,7 +14,7 @@ use Phpcq\PluginApi\Version10\ToolReportInterface;
  *
  * Provides static reading of the log and usage as post processor.
  */
-class JUnitReportAppender
+final class JUnitReportAppender
 {
     use XmlReportAppenderTrait;
 
