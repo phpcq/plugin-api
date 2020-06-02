@@ -22,7 +22,7 @@ final class BufferedLineReader
         $this->data .= $data;
     }
 
-    public function fetch(): ?string
+    public function fetch(bool $trim = true): ?string
     {
         if (false === ($eol = strpos($this->data, "\n"))) {
             return null;
@@ -30,6 +30,7 @@ final class BufferedLineReader
 
         $line = substr($this->data, 0, $eol);
         $this->data = substr($this->data, $eol + 1);
-        return $line;
+
+        return $trim ? trim($line) : $line;
     }
 }

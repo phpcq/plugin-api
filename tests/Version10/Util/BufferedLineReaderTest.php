@@ -46,4 +46,15 @@ final class BufferedLineReaderTest extends TestCase
         $this->assertSame('ghi', $buffer->fetch());
         $this->assertNull($buffer->fetch());
     }
+
+    public function testReadsMultipleLinesTrimmed(): void
+    {
+        $buffer = new BufferedLineReader();
+
+        $buffer->push("  abc  \ndef  \n ghi\n");
+        $this->assertSame('abc', $buffer->fetch());
+        $this->assertSame('def', $buffer->fetch());
+        $this->assertSame('ghi', $buffer->fetch());
+        $this->assertNull($buffer->fetch());
+    }
 }
