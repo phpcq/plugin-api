@@ -13,7 +13,7 @@ interface OutputInterface
     public const VERBOSITY_DEBUG = 256;
 
     public const CHANNEL_STDOUT = 1;
-    public const CHANNEL_STRERR = 2;
+    public const CHANNEL_STDERR = 2;
 
     public function write(string $message, int $verbosity = self::VERBOSITY_NORMAL, int $channel = self::CHANNEL_STDOUT) : void;
 
