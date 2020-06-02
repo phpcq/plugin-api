@@ -43,6 +43,15 @@ interface TaskRunnerBuilderInterface
     public function withTimeout($timeout): TaskRunnerBuilderInterface;
 
     /**
+     * Use a custom output transformer.
+     *
+     * @param OutputTransformerInterface $transformer The custom transformer.
+     *
+     * @return TaskRunnerBuilderInterface
+     */
+    public function withOutputTransformer(OutputTransformerInterface $transformer): TaskRunnerBuilderInterface;
+
+    /**
      * Use a custom post processor.
      *
      * @param PostProcessorInterface $postProcessor The custom post processor
