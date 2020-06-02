@@ -45,11 +45,11 @@ interface TaskRunnerBuilderInterface
     /**
      * Use a custom output transformer.
      *
-     * @param OutputTransformerInterface $transformer The custom transformer.
+     * @param OutputTransformerFactoryInterface $factory The transformer factory.
      *
      * @return TaskRunnerBuilderInterface
      */
-    public function withOutputTransformer(OutputTransformerInterface $transformer): TaskRunnerBuilderInterface;
+    public function withOutputTransformer(OutputTransformerFactoryInterface $factory): TaskRunnerBuilderInterface;
 
     /**
      * Use a custom post processor.

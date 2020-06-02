@@ -8,19 +8,12 @@ namespace Phpcq\PluginApi\Version10;
  * This interface handles output transformations of tasks.
  *
  * The workflow is as follows:
- * 1. The transformer is attached to a report via a call to "attach".
- * 2. All subsequent calls to "write" shall transform the passed data into errors for the passed report.
- * 3. Transformation is finished with a call to "detach".
+ * 1. The transformer is created by a factory for a report.
+ * 2. All subsequent calls to "write" shall transform the passed data into errors for the report.
+ * 3. Transformation is finished with a call to "finish" - after this no calls to "write" may occur anymore.
  */
 interface OutputTransformerInterface
 {
-    /**
-     * Opens the transformer for the given report.
-     *
-     * @param ToolReportInterface $report The report all further writes shall go to.
-     */
-    public function attach(ToolReportInterface $report): void;
-
     /**
      * Process the passed data and generate errors in the attached report.
      *
@@ -37,5 +30,5 @@ interface OutputTransformerInterface
      *
      * @param int $exitCode The exit code of the task.
      */
-    public function detach(int $exitCode): void;
+    public function finish(int $exitCode): void;
 }
