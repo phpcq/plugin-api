@@ -57,6 +57,7 @@ interface TaskRunnerBuilderInterface
      * @param PostProcessorInterface $postProcessor The custom post processor
      *
      * @return TaskRunnerBuilderInterface
+     * @deprecated
      */
     public function withPostProcessor(PostProcessorInterface $postProcessor): TaskRunnerBuilderInterface;
 

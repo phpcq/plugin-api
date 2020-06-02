@@ -8,6 +8,7 @@ namespace Phpcq\PluginApi\Version10;
  * Interface PostProcessorInterface describes an post processor which handles a task output.
  *
  * It creates the report information for the ran task.
+ * @deprecated
  */
 interface PostProcessorInterface
 {
