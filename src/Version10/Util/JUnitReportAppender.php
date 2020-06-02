@@ -112,7 +112,7 @@ class JUnitReportAppender implements PostProcessorInterface
              *
              * Text content holds error message.
              */
-            $report->addError(
+            $report->addDiagnostic(
                 $severity,
                 $this->stripRootDir($childNode->nodeValue),
                 $this->stripRootDir($testCase->getAttribute('file')),

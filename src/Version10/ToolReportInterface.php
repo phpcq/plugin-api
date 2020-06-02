@@ -15,7 +15,7 @@ interface ToolReportInterface
     public const SEVERITY_ERROR = 'error';
 
     /**
-     * Add an error of related to a file.
+     * Add an diagnostic entry.
      *
      * @param string      $severity The severity of the error - one of the self::SEVERITY_* constants.
      * @param string      $message  The error message.
@@ -24,7 +24,7 @@ interface ToolReportInterface
      * @param int|null    $column   The column the error is on (within the line).
      * @param string|null $source   The optional source of the error.
      */
-    public function addError(
+    public function addDiagnostic(
         string $severity,
         string $message,
         ?string $file = null,

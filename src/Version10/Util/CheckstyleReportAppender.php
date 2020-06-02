@@ -50,7 +50,7 @@ class CheckstyleReportAppender implements PostProcessorInterface
                 }
 
                 /** @psalm-suppress PossiblyNullArgument */
-                $report->addError(
+                $report->addDiagnostic(
                     self::getXmlAttribute($errorNode, 'severity', 'error'),
                     self::getXmlAttribute($errorNode, 'message', ''),
                     $fileName,
