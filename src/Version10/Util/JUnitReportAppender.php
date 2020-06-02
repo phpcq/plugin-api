@@ -7,8 +7,6 @@ namespace Phpcq\PluginApi\Version10\Util;
 use DOMDocument;
 use DOMElement;
 use DOMNode;
-
-use Phpcq\PluginApi\Version10\PostProcessorInterface;
 use Phpcq\PluginApi\Version10\ToolReportInterface;
 
 /**
@@ -16,7 +14,7 @@ use Phpcq\PluginApi\Version10\ToolReportInterface;
  *
  * Provides static reading of the log and usage as post processor.
  */
-class JUnitReportAppender implements PostProcessorInterface
+class JUnitReportAppender
 {
     use XmlReportAppenderTrait;
 
