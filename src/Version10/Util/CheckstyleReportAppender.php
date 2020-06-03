@@ -8,6 +8,7 @@ use DOMDocument;
 use DOMElement;
 use DOMNode;
 use Phpcq\PluginApi\Version10\ToolReportInterface;
+
 use function strlen;
 use function strpos;
 use function substr;
@@ -17,16 +18,14 @@ use function substr;
  *
  * Provides static reading of the log and usage as post processor.
  */
-final class CheckstyleReportAppender
+final class CheckstyleReportAppender implements XmlReportAppenderInterface
 {
     use XmlReportAppenderTrait;
 
     /** @SuppressWarnings(PHPMD.UnusedPrivateMethod) */
-    private function processXml(ToolReportInterface $report): void
+    protected function processXml(ToolReportInterface $report): void
     {
-        $xmlDocument = new DOMDocument('1.0');
-        $xmlDocument->load($this->fileName);
-        $rootNode = $xmlDocument->firstChild;
+        $rootNode = $this->xmlDocument->firstChild;
 
         if (!$rootNode instanceof DOMNode) {
             return;

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Phpcq\PluginApi\Version10\Util;
 
-use DOMDocument;
 use DOMElement;
 use DOMNode;
 use Phpcq\PluginApi\Version10\ToolReportInterface;
@@ -14,16 +13,14 @@ use Phpcq\PluginApi\Version10\ToolReportInterface;
  *
  * Provides static reading of the log and usage as post processor.
  */
-final class JUnitReportAppender
+final class JUnitReportAppender implements XmlReportAppenderInterface
 {
     use XmlReportAppenderTrait;
 
     /** @SuppressWarnings(PHPMD.UnusedPrivateMethod) */
-    private function processXml(ToolReportInterface $report): void
+    protected function processXml(ToolReportInterface $report): void
     {
-        $xmlDocument = new DOMDocument('1.0');
-        $xmlDocument->load($this->fileName);
-        $rootNode = $xmlDocument->firstChild;
+        $rootNode = $this->xmlDocument->firstChild;
 
         if (!$rootNode instanceof DOMNode || $rootNode->nodeName !== 'testsuites') {
             return;
