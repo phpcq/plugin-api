@@ -11,7 +11,7 @@ interface ConfigurationPluginInterface extends PluginInterface
      *
      * @param ConfigurationOptionsBuilderInterface $configOptionsBuilder The config options builder.
      */
-    public function describeOptions(ConfigurationOptionsBuilderInterface $configOptionsBuilder) : void;
+    public function describeOptions(ConfigurationOptionsBuilderInterface $configOptionsBuilder): void;
 
     /**
      * Process plugin configuration and create task runners.

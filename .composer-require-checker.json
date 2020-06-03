@@ -6,7 +6,8 @@
   ],
   "php-core-extensions" : [
     "Core",
-    "SPL"
+    "SPL",
+    "standard"
   ],
   "scan-files" : []
 }

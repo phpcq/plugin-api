@@ -31,7 +31,7 @@ final class BufferedLineReaderTest extends TestCase
     {
         $buffer = new BufferedLineReader();
 
-        $buffer->push('abc'. "\n");
+        $buffer->push('abc' . "\n");
         $this->assertSame('abc', $buffer->fetch());
         $this->assertNull($buffer->fetch());
     }

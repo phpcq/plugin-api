@@ -15,7 +15,15 @@ interface OutputInterface
     public const CHANNEL_STDOUT = 1;
     public const CHANNEL_STDERR = 2;
 
-    public function write(string $message, int $verbosity = self::VERBOSITY_NORMAL, int $channel = self::CHANNEL_STDOUT) : void;
+    public function write(
+        string $message,
+        int $verbosity = self::VERBOSITY_NORMAL,
+        int $channel = self::CHANNEL_STDOUT
+    ): void;
 
-    public function writeln(string $message, int $verbosity = self::VERBOSITY_NORMAL, int $channel = self::CHANNEL_STDOUT) : void;
+    public function writeln(
+        string $message,
+        int $verbosity = self::VERBOSITY_NORMAL,
+        int $channel = self::CHANNEL_STDOUT
+    ): void;
 }

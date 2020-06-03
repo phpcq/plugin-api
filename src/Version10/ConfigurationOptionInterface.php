@@ -48,5 +48,5 @@ interface ConfigurationOptionInterface
      *
      * @throws InvalidConfigException When an invalid value is detected.
      */
-    public function validateValue($value) : void;
+    public function validateValue($value): void;
 }

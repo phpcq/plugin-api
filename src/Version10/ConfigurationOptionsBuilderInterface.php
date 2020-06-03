@@ -14,7 +14,7 @@ interface ConfigurationOptionsBuilderInterface
 
     public function describeBoolOption(string $name, string $description, ?bool $defaultValue = null): self;
 
-    public function describeOption(ConfigurationOptionInterface $configOption) : self;
+    public function describeOption(ConfigurationOptionInterface $configOption): self;
 
     public function getOptions(): ConfigurationOptionsInterface;
 }

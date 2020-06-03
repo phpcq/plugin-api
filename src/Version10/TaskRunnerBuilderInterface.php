@@ -27,7 +27,8 @@ interface TaskRunnerBuilderInterface
     /**
      * Use the passed input for the process.
      *
-     * @param resource|string|Traversable $input The input as stream resource, scalar or Traversable, or null for no input
+     * @param resource|string|Traversable $input The input as stream resource, scalar or Traversable, or null for no
+     *                                           input
      *
      * @return self
      */
