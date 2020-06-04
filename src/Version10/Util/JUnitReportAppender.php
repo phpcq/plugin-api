@@ -97,6 +97,10 @@ final class JUnitReportAppender implements XmlReportAppenderInterface
                 case 'warning':
                     $severity = ToolReportInterface::SEVERITY_WARNING;
                     break;
+                case 'skipped':
+                case 'system-err':
+                case 'system-out':
+                    continue 2;
                 default:
                     // FIXME: remove this.
                     throw new \RuntimeException('Node name unknown: ' . $childNode->nodeName);
