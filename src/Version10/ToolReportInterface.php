@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Phpcq\PluginApi\Version10;
 
+use Phpcq\PluginApi\Version10\Report\DiagnosticBuilderInterface;
+
 interface ToolReportInterface
 {
     public const STATUS_STARTED = ReportInterface::STATUS_STARTED;
@@ -15,23 +17,14 @@ interface ToolReportInterface
     public const SEVERITY_ERROR = 'error';
 
     /**
-     * Add an diagnostic entry.
+     * Build a diagnostic entry.
      *
-     * @param string      $severity The severity of the error - one of the self::SEVERITY_* constants.
-     * @param string      $message  The error message.
-     * @param string|null $file     The file of the error.
-     * @param int|null    $line     The line the error is on (within the file).
-     * @param int|null    $column   The column the error is on (within the line).
-     * @param string|null $source   The optional source of the error.
+     * @param string $severity The severity of the error - one of the self::SEVERITY_* constants.
+     * @param string $message  The error message.
+     *
+     * @throws ReportClosedException When report is closed.
      */
-    public function addDiagnostic(
-        string $severity,
-        string $message,
-        ?string $file = null,
-        ?int $line = null,
-        ?int $column = null,
-        ?string $source = null
-    ): void;
+    public function addDiagnostic(string $severity, string $message): DiagnosticBuilderInterface;
 
     /**
      * Add an attachment to the tool report.
@@ -40,6 +33,8 @@ interface ToolReportInterface
      * @param string|null $name     The internal name of the attachment. Defaults to the basename of the passed file.
      *
      * @return void
+     *
+     * @throws ReportClosedException When report is closed.
      */
     public function addAttachment(string $filePath, ?string $name = null): void;
 
@@ -50,6 +45,8 @@ interface ToolReportInterface
      * @param string $name   The internal name of the attachment.
      *
      * @return void
+     *
+     * @throws ReportClosedException When report is closed.
      */
     public function addBufferAsAttachment(string $buffer, string $name): void;
 

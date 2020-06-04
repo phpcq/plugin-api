@@ -107,14 +107,13 @@ final class JUnitReportAppender implements XmlReportAppenderInterface
              *
              * Text content holds error message.
              */
-            $report->addDiagnostic(
-                $severity,
-                $this->stripRootDir($childNode->nodeValue),
-                $this->stripRootDir($testCase->getAttribute('file')),
-                $this->getIntXmlAttribute($testCase, 'line'),
-                null,
-                $this->getXmlAttribute($childNode, 'type')
-            );
+            $report
+                ->addDiagnostic($severity, $this->stripRootDir($childNode->nodeValue))
+                ->forFile($this->stripRootDir($testCase->getAttribute('file')))
+                    ->forRange($this->getIntXmlAttribute($testCase, 'line'))
+                    ->end()
+                ->fromSource($this->getXmlAttribute($childNode, 'type'))
+                ->end();
         }
     }
 

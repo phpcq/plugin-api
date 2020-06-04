@@ -38,7 +38,7 @@ final class CheckstyleReportAppender implements XmlReportAppenderInterface
 
             $fileName = $childNode->getAttribute('name');
             if (strpos($fileName, $this->rootDir) === 0) {
-                $fileName = substr($fileName, strlen($this->rootDir) + 1);
+                $fileName = substr($fileName, strlen($this->rootDir));
             }
 
             foreach ($childNode->childNodes as $errorNode) {
@@ -47,14 +47,21 @@ final class CheckstyleReportAppender implements XmlReportAppenderInterface
                 }
 
                 /** @psalm-suppress PossiblyNullArgument */
-                $report->addDiagnostic(
-                    self::getXmlAttribute($errorNode, 'severity', 'error'),
-                    self::getXmlAttribute($errorNode, 'message', ''),
-                    $fileName,
-                    self::getIntXmlAttribute($errorNode, 'line'),
-                    self::getIntXmlAttribute($errorNode, 'column'),
-                    self::getXmlAttribute($errorNode, 'source')
-                );
+                $builder = $report
+                    ->addDiagnostic(
+                        self::getXmlAttribute($errorNode, 'severity', 'error'),
+                        self::getXmlAttribute($errorNode, 'message', '')
+                    )
+                    ->forFile($fileName)
+                        ->forRange(
+                            self::getIntXmlAttribute($errorNode, 'line'),
+                            self::getIntXmlAttribute($errorNode, 'column')
+                        )
+                        ->end();
+                if ($source = self::getXmlAttribute($errorNode, 'source')) {
+                    $builder->fromSource(self::getXmlAttribute($errorNode, 'source'));
+                }
+                $builder->end();
             }
         }
     }
