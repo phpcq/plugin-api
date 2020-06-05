@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Phpcq\PluginApi\Version10;
 
+use Phpcq\PluginApi\Version10\Report\AttachmentBuilderInterface;
 use Phpcq\PluginApi\Version10\Report\DiagnosticBuilderInterface;
 
 interface ToolReportInterface
@@ -45,28 +46,15 @@ interface ToolReportInterface
     public function addDiagnostic(string $severity, string $message): DiagnosticBuilderInterface;
 
     /**
-     * Add an attachment to the tool report.
+     * Build an attachment entry.
      *
-     * @param string      $filePath The absolute path to the attachment file.
-     * @param string|null $name     The internal name of the attachment. Defaults to the basename of the passed file.
+     * @param string $name The internal name of the attachment.
      *
-     * @return void
-     *
-     * @throws ReportClosedException When report is closed.
-     */
-    public function addAttachment(string $filePath, ?string $name = null): void;
-
-    /**
-     * Add an attachment to the tool report.
-     *
-     * @param string $buffer The file buffer.
-     * @param string $name   The internal name of the attachment.
-     *
-     * @return void
+     * @return AttachmentBuilderInterface
      *
      * @throws ReportClosedException When report is closed.
      */
-    public function addBufferAsAttachment(string $buffer, string $name): void;
+    public function addAttachment(string $name): AttachmentBuilderInterface;
 
     /**
      * Closes the report with the passed status.
