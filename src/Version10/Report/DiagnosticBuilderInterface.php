@@ -24,7 +24,7 @@ interface DiagnosticBuilderInterface
      *
      * @param string $source The source of the diagnostic.
      *
-     * @return DiagnosticBuilderInterface
+     * @return $this
      */
     public function fromSource(string $source): self;
 

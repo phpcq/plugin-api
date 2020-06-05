@@ -16,7 +16,6 @@ interface FileDiagnosticBuilderInterface
      *
      * @return $this
      */
-    // FIXME: rather make this a RangeBuilderInterface?
     public function forRange(int $line, ?int $column = null, ?int $endline = null, ?int $endcolumn = null): self;
 
     /**

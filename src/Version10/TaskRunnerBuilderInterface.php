@@ -11,9 +11,11 @@ interface TaskRunnerBuilderInterface
     /**
      * Use the passed working directory.
      *
+     * @param string $cwd The working directory to use in the task runner.
+     *
      * @return self
      */
-    public function withWorkingDirectory(string $cwd): TaskRunnerBuilderInterface;
+    public function withWorkingDirectory(string $cwd): self;
 
     /**
      * Use the passed environment.
@@ -22,35 +24,35 @@ interface TaskRunnerBuilderInterface
      *
      * @return self
      */
-    public function withEnv(array $env): TaskRunnerBuilderInterface;
+    public function withEnv(array $env): self;
 
     /**
      * Use the passed input for the process.
      *
      * @param resource|string|Traversable $input The input as stream resource, scalar or Traversable, or null for no
-     *                                           input
+     *                                           input.
      *
      * @return self
      */
-    public function withInput($input): TaskRunnerBuilderInterface;
+    public function withInput($input): self;
 
     /**
      * Use the passed timeout (in seconds).
      *
-     * @param int|float $timeout
+     * @param int|float $timeout The timeout in seconds.
      *
      * @return self
      */
-    public function withTimeout($timeout): TaskRunnerBuilderInterface;
+    public function withTimeout($timeout): self;
 
     /**
      * Use a custom output transformer.
      *
      * @param OutputTransformerFactoryInterface $factory The transformer factory.
      *
-     * @return TaskRunnerBuilderInterface
+     * @return self
      */
-    public function withOutputTransformer(OutputTransformerFactoryInterface $factory): TaskRunnerBuilderInterface;
+    public function withOutputTransformer(OutputTransformerFactoryInterface $factory): self;
 
     /**
      * Build the task runner.

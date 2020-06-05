@@ -38,6 +38,8 @@ interface ToolReportInterface
      * @param string $severity The severity of the error - one of the self::SEVERITY_* constants.
      * @param string $message  The error message.
      *
+     * @return DiagnosticBuilderInterface
+     *
      * @throws ReportClosedException When report is closed.
      */
     public function addDiagnostic(string $severity, string $message): DiagnosticBuilderInterface;
