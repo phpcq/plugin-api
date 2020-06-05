@@ -33,4 +33,15 @@ final class BufferedLineReader
 
         return $trim ? trim($line) : $line;
     }
+
+    public function peek(bool $trim = true): ?string
+    {
+        if (false === ($eol = strpos($this->data, "\n"))) {
+            return null;
+        }
+
+        $line = substr($this->data, 0, $eol);
+
+        return $trim ? trim($line) : $line;
+    }
 }
