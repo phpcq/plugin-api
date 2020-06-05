@@ -12,8 +12,24 @@ interface ToolReportInterface
     public const STATUS_PASSED  = ReportInterface::STATUS_PASSED;
     public const STATUS_FAILED  = ReportInterface::STATUS_FAILED;
 
+    /**
+     * An non issue - strictly informational.
+     */
     public const SEVERITY_INFO  = 'info';
+
+    /**
+     * Normal but significant diagnostic - no action has to be taken.
+     */
+    public const SEVERITY_NOTICE  = 'notice';
+
+    /**
+     * An issue that should be fixed.
+     */
     public const SEVERITY_WARNING = 'warning';
+
+    /**
+     * An issue that MUST be fixed.
+     */
     public const SEVERITY_ERROR = 'error';
 
     /**
