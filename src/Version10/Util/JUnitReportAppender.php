@@ -12,12 +12,14 @@ use Phpcq\PluginApi\Version10\ToolReportInterface;
  * Helper class to handle JUnit log files.
  *
  * Provides static reading of the log and usage as post processor.
+ *
+ * Format: https://github.com/windyroad/JUnit-Schema/blob/master/JUnit.xsd
+ * At task: http://svn.apache.org/repos/asf/ant/core/trunk/src/main/org/apache/tools/ant/taskdefs/optional/junit/XMLJUnitResultFormatter.java
  */
 final class JUnitReportAppender implements XmlReportAppenderInterface
 {
     use XmlReportAppenderTrait;
 
-    /** @SuppressWarnings(PHPMD.UnusedPrivateMethod) */
     protected function processXml(ToolReportInterface $report): void
     {
         $rootNode = $this->xmlDocument->firstChild;
@@ -75,49 +77,59 @@ final class JUnitReportAppender implements XmlReportAppenderInterface
     {
         /*
          * <testcase> has the following attributes:
-         *
-         * - name: name of test
-         * - class: FQDN of the test class
-         * - classname: dot separated FQDN of the class
-         * - file: file the test class is declared in (absolute path)
-         * - line: line number of failure
-         * - assertions: assertion count up until error
-         * - time: time test has consumed
+         * - name: The name of the test case.
+         * - class: The name of the class the test is defined in (FQCN).
+         * - classname: The FQCN of the test as "." separated namespace.
+         * - file: The name of the file the test is defined within (absolute path).
+         * - line: The line in above file, the failed assertion was on.
+         * - assertions: The amount of assertions performed (up until error).
+         * - time: The duration of the test case.
          */
         foreach ($testCase->childNodes as $childNode) {
             if (!$childNode instanceof DOMElement) {
                 continue;
             }
 
-            switch ($childNode->nodeName) {
-                case 'error':
-                case 'failure':
-                    $severity = ToolReportInterface::SEVERITY_ERROR;
-                    break;
-                case 'warning':
-                    $severity = ToolReportInterface::SEVERITY_WARNING;
-                    break;
-                case 'skipped':
-                case 'system-err':
-                case 'system-out':
-                    continue 2;
-                default:
-                    // FIXME: remove this.
-                    throw new \RuntimeException('Node name unknown: ' . $childNode->nodeName);
+            $severity = $this->getSeverity($childNode);
+            if (null === $severity) {
+                continue;
             }
             /*
-             * <failure> has the following attributes:
-             * - type: name of exception
+             * For phpunit, the following is true:
+             *
+             * <$childNode> has the following attributes:
+             * - type: name of the exception class or "error type"
              *
              * Text content holds error message.
              */
-            $report
-                ->addDiagnostic($severity, $this->stripRootDir($childNode->nodeValue))
-                ->forFile($this->stripRootDir($testCase->getAttribute('file')))
-                    ->forRange($this->getIntXmlAttribute($testCase, 'line'))
-                    ->end()
-                ->fromSource($this->getXmlAttribute($childNode, 'type'))
-                ->end();
+            $builder = $report
+                ->addDiagnostic($severity, $this->stripRootDir((string) $childNode->nodeValue))
+                ->forFile($this->stripRootDir((string) $testCase->getAttribute('file')))
+                    ->forRange((int) $this->getIntXmlAttribute($testCase, 'line'))
+                    ->end();
+
+            if ($source = $this->getXmlAttribute($childNode, 'type')) {
+                $builder->fromSource($source);
+            }
+            $builder->end();
+        }
+    }
+
+    private function getSeverity(DOMElement $childNode): ?string
+    {
+        switch ($childNode->nodeName) {
+            case 'error':
+            case 'failure':
+                return ToolReportInterface::SEVERITY_ERROR;
+                break;
+            case 'warning':
+                return ToolReportInterface::SEVERITY_WARNING;
+                break;
+            case 'skipped':
+            case 'system-err':
+            case 'system-out':
+            default:
+                return null;
         }
     }
 

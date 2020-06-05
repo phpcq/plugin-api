@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Phpcq\PluginApi\Version10\Util;
 
-use DOMDocument;
 use DOMElement;
 use DOMNode;
 use Phpcq\PluginApi\Version10\ToolReportInterface;
@@ -22,7 +21,6 @@ final class CheckstyleReportAppender implements XmlReportAppenderInterface
 {
     use XmlReportAppenderTrait;
 
-    /** @SuppressWarnings(PHPMD.UnusedPrivateMethod) */
     protected function processXml(ToolReportInterface $report): void
     {
         $rootNode = $this->xmlDocument->firstChild;
@@ -46,20 +44,19 @@ final class CheckstyleReportAppender implements XmlReportAppenderInterface
                     continue;
                 }
 
-                /** @psalm-suppress PossiblyNullArgument */
                 $builder = $report
                     ->addDiagnostic(
-                        self::getXmlAttribute($errorNode, 'severity', 'error'),
-                        self::getXmlAttribute($errorNode, 'message', '')
+                        (string) $this->getXmlAttribute($errorNode, 'severity', 'error'),
+                        (string) $this->getXmlAttribute($errorNode, 'message', '')
                     )
                     ->forFile($fileName)
                         ->forRange(
-                            self::getIntXmlAttribute($errorNode, 'line'),
-                            self::getIntXmlAttribute($errorNode, 'column')
+                            (int) $this->getIntXmlAttribute($errorNode, 'line'),
+                            $this->getIntXmlAttribute($errorNode, 'column')
                         )
                         ->end();
-                if ($source = self::getXmlAttribute($errorNode, 'source')) {
-                    $builder->fromSource(self::getXmlAttribute($errorNode, 'source'));
+                if ($source = $this->getXmlAttribute($errorNode, 'source')) {
+                    $builder->fromSource($source);
                 }
                 $builder->end();
             }
