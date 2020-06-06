@@ -58,4 +58,24 @@ final class BufferedLineReader
 
         return $trim ? trim($line) : $line;
     }
+
+    /**
+     * Obtain the length of the buffer.
+     *
+     * @return int
+     */
+    public function getLength(): int
+    {
+        return strlen($this->data);
+    }
+
+    /**
+     * Test if the buffer is empty.
+     *
+     * @return bool
+     */
+    public function isEmpty(): bool
+    {
+        return 0 === $this->getLength();
+    }
 }

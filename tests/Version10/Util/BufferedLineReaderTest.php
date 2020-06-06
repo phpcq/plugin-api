@@ -9,6 +9,8 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \Phpcq\PluginApi\Version10\Util\BufferedLineReader
+ *
+ * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  */
 final class BufferedLineReaderTest extends TestCase
 {
@@ -99,5 +101,35 @@ final class BufferedLineReaderTest extends TestCase
 
         $buffer->push("  abc  \n");
         $this->assertSame('abc', $buffer->peek());
+    }
+
+    public function testGetLengthReturnsZeroForEmptyBuffer(): void
+    {
+        $buffer = new BufferedLineReader();
+
+        $this->assertSame(0, $buffer->getLength());
+    }
+
+    public function testGetLengthReturnsCorrectLengthForNonEmptyBuffer(): void
+    {
+        $buffer = new BufferedLineReader();
+        $buffer->push('abc');
+
+        $this->assertSame(3, $buffer->getLength());
+    }
+
+    public function testIsEmptyReturnsTrueForEmptyBuffer(): void
+    {
+        $buffer = new BufferedLineReader();
+
+        $this->assertTrue($buffer->isEmpty());
+    }
+
+    public function testIsEmptyReturnsFalseForNonEmptyBuffer(): void
+    {
+        $buffer = new BufferedLineReader();
+        $buffer->push('abc');
+
+        $this->assertFalse($buffer->isEmpty());
     }
 }
