@@ -41,6 +41,13 @@ final class BufferedLineReader
     }
 
     /**
+     * New instances must be created via any of the static self::create* methods.
+     */
+    private function __construct()
+    {
+    }
+
+    /**
      * Fetch the whole buffer contents.
      *
      * @return string
