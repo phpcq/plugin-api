@@ -22,6 +22,13 @@ final class BufferedLineReader
         $this->data .= $data;
     }
 
+    /**
+     * Fetch the next line from the buffer.
+     *
+     * @param bool $trim Flag if the result shall be trimmed.
+     *
+     * @return string|null
+     */
     public function fetch(bool $trim = true): ?string
     {
         if (false === ($eol = strpos($this->data, "\n"))) {
@@ -34,6 +41,13 @@ final class BufferedLineReader
         return $trim ? trim($line) : $line;
     }
 
+    /**
+     * Peek into the buffer without removing the line.
+     *
+     * @param bool $trim Flag if the result shall be trimmed.
+     *
+     * @return string|null
+     */
     public function peek(bool $trim = true): ?string
     {
         if (false === ($eol = strpos($this->data, "\n"))) {
