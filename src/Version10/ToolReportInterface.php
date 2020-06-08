@@ -6,6 +6,7 @@ namespace Phpcq\PluginApi\Version10;
 
 use Phpcq\PluginApi\Version10\Report\AttachmentBuilderInterface;
 use Phpcq\PluginApi\Version10\Report\DiagnosticBuilderInterface;
+use Phpcq\PluginApi\Version10\Report\DiffBuilderInterface;
 
 interface ToolReportInterface
 {
@@ -57,6 +58,17 @@ interface ToolReportInterface
      * @throws ReportClosedException When report is closed.
      */
     public function addAttachment(string $name): AttachmentBuilderInterface;
+
+    /**
+     * Build an diff entry.
+     *
+     * @param string $name The internal name of the diff.
+     *
+     * @return DiffBuilderInterface
+     *
+     * @throws ReportClosedException When report is closed.
+     */
+    public function addDiff(string $name): DiffBuilderInterface;
 
     /**
      * Closes the report with the passed status.
