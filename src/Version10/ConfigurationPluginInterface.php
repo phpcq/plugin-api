@@ -23,7 +23,7 @@ interface ConfigurationPluginInterface extends PluginInterface
      *
      * @return TaskInterface[]
      *
-     * @psalm-return \Generator<int, TaskRunnerInterface>
+     * @psalm-return \Generator<int, TaskInterface>
      */
     public function processConfig(array $config, BuildConfigInterface $buildConfig): iterable;
 }
