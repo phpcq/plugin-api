@@ -42,6 +42,7 @@ interface ToolReportInterface
      *
      * @return DiagnosticBuilderInterface
      *
+     * @throws RuntimeException When the passed severity is invalid.
      * @throws ReportClosedException When report is closed.
      */
     public function addDiagnostic(string $severity, string $message): DiagnosticBuilderInterface;
