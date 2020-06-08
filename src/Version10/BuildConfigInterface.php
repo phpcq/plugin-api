@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Phpcq\PluginApi\Version10;
 
+use Phpcq\PluginApi\Version10\Task\TaskFactoryInterface;
+
 interface BuildConfigInterface
 {
     /**

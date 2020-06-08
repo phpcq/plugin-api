@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Phpcq\PluginApi\Version10;
 
+use Phpcq\PluginApi\Version10\Task\TaskInterface;
+
 interface ConfigurationPluginInterface extends PluginInterface
 {
     /**
@@ -19,7 +21,7 @@ interface ConfigurationPluginInterface extends PluginInterface
      * @param array                $config      The plugin configuration.
      * @param BuildConfigInterface $buildConfig The build configuration.
      *
-     * @return TaskRunnerInterface[]
+     * @return TaskInterface[]
      *
      * @psalm-return \Generator<int, TaskRunnerInterface>
      */

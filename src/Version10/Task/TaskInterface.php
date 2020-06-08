@@ -1,0 +1,12 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Phpcq\PluginApi\Version10\Task;
+
+/**
+ * This interface describes a task to run.
+ */
+interface TaskInterface
+{
+}

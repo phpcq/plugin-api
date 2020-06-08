@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Phpcq\PluginApi\Version10;
+namespace Phpcq\PluginApi\Version10\Task;
 
+use Phpcq\PluginApi\Version10\OutputTransformerFactoryInterface;
 use Traversable;
 
-interface TaskRunnerBuilderInterface
+interface TaskBuilderInterface
 {
     /**
      * Use the passed working directory.
@@ -57,7 +58,7 @@ interface TaskRunnerBuilderInterface
     /**
      * Build the task runner.
      *
-     * @return TaskRunnerInterface
+     * @return TaskInterface
      */
-    public function build(): TaskRunnerInterface;
+    public function build(): TaskInterface;
 }
