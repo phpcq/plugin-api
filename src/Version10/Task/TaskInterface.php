@@ -9,4 +9,10 @@ namespace Phpcq\PluginApi\Version10\Task;
  */
 interface TaskInterface
 {
+    /**
+     * Get the name of the tool the task belongs to.
+     *
+     * @return string
+     */
+    public function getToolName(): string;
 }
