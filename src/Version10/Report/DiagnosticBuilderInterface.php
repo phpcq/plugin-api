@@ -29,6 +29,15 @@ interface DiagnosticBuilderInterface
     public function fromSource(string $source): self;
 
     /**
+     * The optional URL containing more information.
+     *
+     * @param string $url
+     *
+     * @return $this
+     */
+    public function withExternalInfoUrl(string $url): self;
+
+    /**
      * End the builder instance.
      *
      * After calling this, no further calls will have any effect.
