@@ -7,7 +7,7 @@ namespace Phpcq\PluginApi\Version10\Task;
 use Phpcq\PluginApi\Version10\OutputInterface;
 use Phpcq\PluginApi\Version10\RuntimeException;
 
-interface OutputWritingTaskRunnerInterface extends TaskInterface
+interface OutputWritingTaskInterface extends TaskInterface
 {
     /**
      * Run the task.

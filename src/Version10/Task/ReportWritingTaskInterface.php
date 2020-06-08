@@ -7,7 +7,7 @@ namespace Phpcq\PluginApi\Version10\Task;
 use Phpcq\PluginApi\Version10\RuntimeException;
 use Phpcq\PluginApi\Version10\ToolReportInterface;
 
-interface ReportWritingTaskRunnerInterface extends TaskInterface
+interface ReportWritingTaskInterface extends TaskInterface
 {
     /**
      * Run task with a report.
