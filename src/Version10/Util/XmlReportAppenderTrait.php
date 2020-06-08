@@ -90,7 +90,7 @@ trait XmlReportAppenderTrait
                     public function finish(int $exitCode): void
                     {
                         $this->calledClass::appendBufferTo($this->report, $this->buffer, $this->rootDir);
-                        $this->report->finish(
+                        $this->report->close(
                             $exitCode === 0 ? ToolReportInterface::STATUS_PASSED : ToolReportInterface::STATUS_FAILED
                         );
                     }
@@ -167,7 +167,7 @@ trait XmlReportAppenderTrait
                     public function finish(int $exitCode): void
                     {
                         $this->calledClass::appendFileTo($this->report, $this->fileName, $this->rootDir);
-                        $this->report->finish(
+                        $this->report->close(
                             $exitCode === 0 ? ToolReportInterface::STATUS_PASSED : ToolReportInterface::STATUS_FAILED
                         );
                     }

@@ -10,7 +10,7 @@ namespace Phpcq\PluginApi\Version10;
  * The workflow is as follows:
  * 1. The transformer is created by a factory for a report.
  * 2. All subsequent calls to "write" shall transform the passed data into errors for the report.
- * 3. Transformation is finished with a call to "finish" - after this no calls to "write" may occur anymore.
+ * 3. Transformation is finished with a call to "close" - after this no calls to "write" may occur anymore.
  */
 interface OutputTransformerInterface
 {

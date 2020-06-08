@@ -12,6 +12,7 @@ interface ToolReportInterface
     public const STATUS_STARTED = ReportInterface::STATUS_STARTED;
     public const STATUS_PASSED  = ReportInterface::STATUS_PASSED;
     public const STATUS_FAILED  = ReportInterface::STATUS_FAILED;
+    public const STATUS_SKIPPED = 'skipped';
 
     /**
      * An non issue - strictly informational.
@@ -63,5 +64,12 @@ interface ToolReportInterface
      *
      * @throws ReportClosedException When the report has been closed previously.
      */
-    public function finish(string $status): void;
+    public function close(string $status): void;
+
+    /**
+     * Get the status of the report.
+     *
+     * @return string (either self::STATUS_STARTED, STATUS_PASSED or self::STATUS_FAILED, STATUS_SKIPPED).
+     */
+    public function getStatus() : string;
 }
