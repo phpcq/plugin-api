@@ -38,6 +38,24 @@ interface DiagnosticBuilderInterface
     public function withExternalInfoUrl(string $url): self;
 
     /**
+     * A class the diagnostic relates to (can be called multiple times to regard multiple classes).
+     *
+     * @param string $className
+     *
+     * @return $this
+     */
+    public function forClass(string $className): self;
+
+    /**
+     * Add a category describing the diagnostic.
+     *
+     * @param string $category
+     *
+     * @return $this
+     */
+    public function withCategory(string $category): self;
+
+    /**
      * End the builder instance.
      *
      * After calling this, no further calls will have any effect.
