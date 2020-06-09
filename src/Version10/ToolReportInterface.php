@@ -84,5 +84,5 @@ interface ToolReportInterface
      *
      * @return string (either self::STATUS_STARTED, STATUS_PASSED or self::STATUS_FAILED, STATUS_SKIPPED).
      */
-    public function getStatus() : string;
+    public function getStatus(): string;
 }
