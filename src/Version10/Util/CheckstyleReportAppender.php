@@ -16,10 +16,25 @@ use function substr;
  * Helper class to handle checkstyle log files.
  *
  * Provides static reading of the log and usage as post processor.
+ *
+ *  @psalm-type TDiagnosticSeverity = ToolReportInterface::SEVERITY_NONE
+ * |ToolReportInterface::SEVERITY_INFO
+ * |ToolReportInterface::SEVERITY_MARGINAL
+ * |ToolReportInterface::SEVERITY_MINOR
+ * |ToolReportInterface::SEVERITY_MAJOR
+ * |ToolReportInterface::SEVERITY_FATAL
  */
 final class CheckstyleReportAppender implements XmlReportAppenderInterface
 {
     use XmlReportAppenderTrait;
+
+    // TODO: Check if mapping makes sense
+    private const SEVERITY_MAP = [
+        'error'   => ToolReportInterface::SEVERITY_MAJOR,
+        'warning' => ToolReportInterface::SEVERITY_MINOR,
+        'info'    => ToolReportInterface::SEVERITY_MARGINAL,
+        'ignore'  => ToolReportInterface::SEVERITY_INFO,
+    ];
 
     protected function processXml(ToolReportInterface $report): void
     {
@@ -46,7 +61,7 @@ final class CheckstyleReportAppender implements XmlReportAppenderInterface
 
                 $builder = $report
                     ->addDiagnostic(
-                        (string) $this->getXmlAttribute($errorNode, 'severity', 'error'),
+                        $this->getSeverity($errorNode),
                         (string) $this->getXmlAttribute($errorNode, 'message', '')
                     )
                     ->forFile($fileName)
@@ -61,5 +76,13 @@ final class CheckstyleReportAppender implements XmlReportAppenderInterface
                 $builder->end();
             }
         }
+    }
+
+    /** @psalm-return TDiagnosticSeverity */
+    private function getSeverity(DOMElement $errorNode): string
+    {
+        $errorType = $this->getXmlAttribute($errorNode, 'severity', 'error');
+
+        return self::SEVERITY_MAP[$errorType] ?? ToolReportInterface::SEVERITY_MAJOR;
     }
 }
