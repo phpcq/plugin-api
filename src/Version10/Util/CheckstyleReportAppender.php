@@ -6,7 +6,7 @@ namespace Phpcq\PluginApi\Version10\Util;
 
 use DOMElement;
 use DOMNode;
-use Phpcq\PluginApi\Version10\ToolReportInterface;
+use Phpcq\PluginApi\Version10\Report\ToolReportInterface;
 
 use function strlen;
 use function strpos;

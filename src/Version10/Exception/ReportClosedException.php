@@ -2,11 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Phpcq\PluginApi\Version10;
+namespace Phpcq\PluginApi\Version10\Exception;
 
-use RuntimeException;
-
-class ReportClosedException extends RuntimeException implements Exception
+class ReportClosedException extends RuntimeException
 {
     /**
      * Create a new instance.

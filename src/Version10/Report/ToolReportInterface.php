@@ -2,11 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Phpcq\PluginApi\Version10;
+namespace Phpcq\PluginApi\Version10\Report;
 
-use Phpcq\PluginApi\Version10\Report\AttachmentBuilderInterface;
-use Phpcq\PluginApi\Version10\Report\DiagnosticBuilderInterface;
-use Phpcq\PluginApi\Version10\Report\DiffBuilderInterface;
+use Phpcq\PluginApi\Version10\Exception\ReportClosedException;
+use Phpcq\PluginApi\Version10\Exception\RuntimeException;
 
 interface ToolReportInterface
 {

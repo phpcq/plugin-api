@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Phpcq\PluginApi\Version10;
+namespace Phpcq\PluginApi\Version10\Configuration;
 
 use Countable;
 use IteratorAggregate;
+use Phpcq\PluginApi\Version10\Exception\InvalidConfigException;
 use Traversable;
 
 /**

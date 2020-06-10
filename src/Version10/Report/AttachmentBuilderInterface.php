@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace Phpcq\PluginApi\Version10\Report;
 
-use Phpcq\PluginApi\Version10\RuntimeException;
-use Phpcq\PluginApi\Version10\ToolReportInterface;
+use Phpcq\PluginApi\Version10\Exception\RuntimeException;
 
 interface AttachmentBuilderInterface
 {

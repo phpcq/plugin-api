@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Phpcq\PluginApi\Version10\Report;
 
-use Phpcq\PluginApi\Version10\ToolReportInterface;
-
 interface DiagnosticBuilderInterface
 {
     /**
