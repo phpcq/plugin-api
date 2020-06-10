@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Phpcq\PluginApi\Version10\Configuration;
 
-use Phpcq\PluginApi\Version10\Exception\InvalidConfigException;
+use Phpcq\PluginApi\Version10\Exception\InvalidConfigurationException;
 
 interface ConfigurationOptionInterface
 {
@@ -48,7 +48,7 @@ interface ConfigurationOptionInterface
      *
      * @param mixed $value Given value.
      *
-     * @throws InvalidConfigException When an invalid value is detected.
+     * @throws InvalidConfigurationException When an invalid value is detected.
      */
     public function validateValue($value): void;
 }

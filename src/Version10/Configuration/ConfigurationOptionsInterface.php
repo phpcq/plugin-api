@@ -6,7 +6,7 @@ namespace Phpcq\PluginApi\Version10\Configuration;
 
 use Countable;
 use IteratorAggregate;
-use Phpcq\PluginApi\Version10\Exception\InvalidConfigException;
+use Phpcq\PluginApi\Version10\Exception\InvalidConfigurationException;
 use Traversable;
 
 /**
@@ -28,7 +28,7 @@ interface ConfigurationOptionsInterface extends IteratorAggregate, Countable
      *
      * @param array $config The configuration to validate.
      *
-     * @throws InvalidConfigException When configuration is not valid.
+     * @throws InvalidConfigurationException When configuration is not valid.
      */
-    public function validateConfig(array $config): void;
+    public function validateConfig(array $config): PluginConfigurationInterface;
 }
