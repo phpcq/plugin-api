@@ -37,5 +37,8 @@ interface OptionBuilderInterface
      */
     public function withValidator(callable $validator): self;
 
+    /** @psalm-param TType $defaultValue */
+    public function withDefaultValue($defaultValue): self;
+
     public function end(): ConfigurationOptionsBuilderInterface;
 }

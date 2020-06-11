@@ -14,32 +14,40 @@ interface ArrayOptionsBuilderInterface extends OptionBuilderInterface
      *
      * @param string $name        The name of the option.
      * @param string $description The description of the option.
+     *
+     * @psalm-return ArrayOptionBuilderInterface<bool>
      */
-    public function describeBoolOption(string $name, string $description): ArrayBoolOptionBuilderInterface;
+    public function describeBoolOption(string $name, string $description): ArrayOptionBuilderInterface;
 
     /**
      * Describe a float option and return its builder.
      *
      * @param string $name        The name of the option.
      * @param string $description The description of the option.
+     *
+     * @psalm-return ArrayOptionBuilderInterface<float>
      */
-    public function describeFloatOption(string $name, string $description): ArrayFloatOptionBuilderInterface;
+    public function describeFloatOption(string $name, string $description): ArrayOptionBuilderInterface;
 
     /**
      * Describe an integer option and return its builder.
      *
      * @param string $name        The name of the option.
      * @param string $description The description of the option.
+     *
+     * @psalm-return ArrayOptionBuilderInterface<int>
      */
-    public function describeIntOption(string $name, string $description): ArrayIntOptionBuilderInterface;
+    public function describeIntOption(string $name, string $description): ArrayOptionBuilderInterface;
 
     /**
      * Describe a string option and return its builder.
      *
      * @param string $name        The name of the option.
      * @param string $description The description of the option.
+     *
+     * @psalm-return ArrayOptionBuilderInterface<string>
      */
-    public function describeStringOption(string $name, string $description): ArrayStringOptionBuilderInterface;
+    public function describeStringOption(string $name, string $description): ArrayOptionBuilderInterface;
 
     /**
      * Describe an enum option and return its builder.

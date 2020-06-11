@@ -11,7 +11,4 @@ interface ArrayEnumOptionBuilderInterface extends ArrayOptionBuilderInterface
     public function ofIntValues(string ...$values): self;
 
     public function ofFloatValues(float ...$values): self;
-
-    /** @param string|int|float $defaultValue */
-    public function withDefaultValue($defaultValue): self;
 }
