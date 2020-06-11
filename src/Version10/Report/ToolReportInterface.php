@@ -46,7 +46,7 @@ interface ToolReportInterface
     /**
      * A major issue - action MUST be taken (could be failing unit tests).
      */
-    public const SEVERITY_MAJOR  = 'minor';
+    public const SEVERITY_MAJOR  = 'major';
 
     /**
      * A fatal issue - (could be missing dependencies or the like which make the project unusable).

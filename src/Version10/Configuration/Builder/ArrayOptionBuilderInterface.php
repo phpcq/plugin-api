@@ -4,14 +4,12 @@ declare(strict_types=1);
 
 namespace Phpcq\PluginApi\Version10\Configuration\Builder;
 
-use Phpcq\PluginApi\Version10\Configuration\ConfigurationOptionsBuilderInterface;
-
 /**
- * Interface describes a base option builder. It's designed as base for type based option builders.
+ * Interface ArrayOptionBuilderInterface
  *
  * @psalm-template TType
  */
-interface OptionBuilderInterface
+interface ArrayOptionBuilderInterface
 {
     /**
      * Mark option as required.
@@ -37,5 +35,5 @@ interface OptionBuilderInterface
      */
     public function withValidator(callable $validator): self;
 
-    public function end(): ConfigurationOptionsBuilderInterface;
+    public function end(): ArrayOptionsBuilderInterface;
 }

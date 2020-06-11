@@ -19,7 +19,7 @@ interface ProjectConfigInterface
     /**
      * Get list of source directories.
      *
-     * @return array
+     * @return string[]
      */
     public function getDirectories(): array;
 
