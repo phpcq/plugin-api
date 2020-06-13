@@ -20,11 +20,4 @@ interface PluginInterface
      * @return string
      */
     public function getName(): string;
-
-    /**
-     * Describe available config options.
-     *
-     * @param ConfigurationOptionsBuilderInterface $configOptionsBuilder The config options builder.
-     */
-    public function describeOptions(ConfigurationOptionsBuilderInterface $configOptionsBuilder): void;
 }

@@ -10,7 +10,7 @@ use Phpcq\PluginApi\Version10\Task\TaskInterface;
 /**
  * This interface describes plugins providing diagnostic tasks.
  */
-interface DiagnosticsPluginInterface extends PluginInterface
+interface DiagnosticsPluginInterface extends ConfigurationPluginInterface
 {
     /**
      * Process plugin configuration and create tasks.
