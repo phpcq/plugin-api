@@ -19,21 +19,21 @@ interface OptionsInterface
     public function getInt(string $name): int;
 
     /**
-     * Get an integer option by name.
+     * Get a string option by name.
      *
      * @throws RuntimeException When option does not exist.
      */
     public function getString(string $name): string;
 
     /**
-     * Get an integer option by name.
+     * Get a float option by name.
      *
      * @throws RuntimeException When option does not exist.
      */
     public function getFloat(string $name): string;
 
     /**
-     * Get an integer option by name.
+     * Get a bool option by name.
      *
      * @throws RuntimeException When option does not exist.
      */
@@ -45,7 +45,7 @@ interface OptionsInterface
     public function getList(string $name): array;
 
     /**
-     * Get an integer option by name.
+     * Get an array option by name.
      *
      * @throws RuntimeException When option does not exist.
      */
