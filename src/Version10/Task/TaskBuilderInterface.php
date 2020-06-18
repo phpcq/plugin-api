@@ -56,6 +56,13 @@ interface TaskBuilderInterface
     public function withOutputTransformer(OutputTransformerFactoryInterface $factory): self;
 
     /**
+     * Disable parallel execution for this task.
+     *
+     * @return $this
+     */
+    public function forceSingleProcess(): self;
+
+    /**
      * Build the task runner.
      *
      * @return TaskInterface
