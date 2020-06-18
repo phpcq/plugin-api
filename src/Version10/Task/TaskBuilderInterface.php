@@ -56,6 +56,26 @@ interface TaskBuilderInterface
     public function withOutputTransformer(OutputTransformerFactoryInterface $factory): self;
 
     /**
+     * Disable parallel execution for this task.
+     *
+     * @return $this
+     */
+    public function forceSingleProcess(): self;
+
+    /**
+     * Set the count of "threads" this task consumes.
+     *
+     * The default is 1 and should only be increased if the executed tool in fact forks itself or is multi-threaded.
+     *
+     * This is mutually exclusive for single process tasks.
+     *
+     * @param int $cost The cost factor.
+     *
+     * @return $this
+     */
+    public function withCosts(int $cost): self;
+
+    /**
      * Build the task runner.
      *
      * @return TaskInterface
