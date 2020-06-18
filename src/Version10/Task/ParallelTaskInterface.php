@@ -28,4 +28,14 @@ interface ParallelTaskInterface extends TaskInterface
      * @throws RuntimeException When the task fails.
      */
     public function tick(): bool;
+
+    /**
+     * Return the cost factor of this task.
+     *
+     * This is the count of "threads" this task consumes and should return 1 if the tool is not multi threaded by
+     * itself.
+     *
+     * @return int
+     */
+    public function getCost(): int;
 }
