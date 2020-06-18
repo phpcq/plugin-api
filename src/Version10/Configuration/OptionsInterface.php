@@ -30,14 +30,14 @@ interface OptionsInterface
      *
      * @throws RuntimeException When option does not exist.
      */
-    public function getFloat(string $name): string;
+    public function getFloat(string $name): float;
 
     /**
      * Get a bool option by name.
      *
      * @throws RuntimeException When option does not exist.
      */
-    public function getBool(string $name): string;
+    public function getBool(string $name): bool;
 
     /**
      * @psalm-return list
@@ -57,4 +57,11 @@ interface OptionsInterface
      * @return bool
      */
     public function has(string $name): bool;
+
+    /**
+     * Return raw value of an array.
+     *
+     * @return array
+     */
+    public function getValue(): array;
 }

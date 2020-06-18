@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Phpcq\PluginApi\Version10\Configuration\Builder;
 
-use Phpcq\PluginApi\Version10\Configuration\ConfigurationOptionsBuilderInterface;
-
 /**
  * Interface describes a base option builder. It's designed as base for type based option builders.
  *
+ * @psalm-tempate TParent
  * @psalm-template TType
+ * @implements NodeBuilderInterface<TParent>
  */
-interface OptionBuilderInterface
+interface OptionBuilderInterface extends NodeBuilderInterface
 {
     /**
      * Mark option as required.
@@ -40,5 +40,6 @@ interface OptionBuilderInterface
     /** @psalm-param TType $defaultValue */
     public function withDefaultValue($defaultValue): self;
 
-    public function end(): ConfigurationOptionsBuilderInterface;
+    /** @psalm-return NodeBuilderInterface<TParent> */
+    public function end(): NodeBuilderInterface;
 }

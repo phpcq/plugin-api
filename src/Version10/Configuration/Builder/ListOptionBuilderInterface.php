@@ -29,4 +29,23 @@ interface ListOptionBuilderInterface extends OptionBuilderInterface
      * @return $this
      */
     public function ofIntItems(): self;
+
+    /**
+     * Declare a list of object like items.
+     *
+     * @return OptionsBuilderInterface
+     * @psalm-return OptionsBuilderInterface<ListOptionBuilderInterface>
+     */
+    public function ofArrayItems(): OptionsBuilderInterface;
+
+    /**
+     * Register a validator which validates a single item of the given list value.
+     *
+     * A validator has to throw a \Phpcq\PluginApi\Version10\Exception\InvalidConfigurationException if an invalid value
+     * is given.
+     *
+     * @param callable $validator
+     * @psalm-param callable(mixed) $validator
+     */
+    public function withItemValidator(callable $validator) : OptionBuilderInterface;
 }
