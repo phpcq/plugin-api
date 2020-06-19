@@ -55,4 +55,11 @@ interface PrototypeBuilderInterface extends OptionBuilderInterface
      * @return $this
      */
     public function ofStringValue() : self;
+
+    /**
+     * Define a prototype vale.
+     *
+     * @return PrototypeBuilderInterface
+     */
+    public function ofPrototypeValue(): PrototypeBuilderInterface;
 }

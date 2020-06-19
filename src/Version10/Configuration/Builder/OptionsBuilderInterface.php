@@ -27,7 +27,7 @@ interface OptionsBuilderInterface extends OptionBuilderInterface
      * @param string $name        The name of the option.
      * @param string $description The description of the prototype.
      */
-    public function describePrototype(string $name, string $description): PrototypeBuilderInterface;
+    public function describePrototypeOption(string $name, string $description): PrototypeBuilderInterface;
 
     /**
      * Describe a bool option and return its builder
