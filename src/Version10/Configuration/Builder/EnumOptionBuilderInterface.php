@@ -8,7 +8,7 @@ interface EnumOptionBuilderInterface extends OptionBuilderInterface
 {
     public function ofStringValues(string ...$values): self;
 
-    public function ofIntValues(string ...$values): self;
+    public function ofIntValues(int ...$values): self;
 
     public function ofFloatValues(float ...$values): self;
 }

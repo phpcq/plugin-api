@@ -29,7 +29,7 @@ interface PrototypeBuilderInterface extends OptionBuilderInterface
     public function ofEnumValue(): EnumOptionBuilderInterface;
 
     /**
-     * Define an float prototype value.
+     * Define a float prototype value.
      *
      * @return $this
      */
