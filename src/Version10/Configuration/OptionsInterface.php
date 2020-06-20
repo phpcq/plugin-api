@@ -45,6 +45,12 @@ interface OptionsInterface
     public function getList(string $name): array;
 
     /**
+     * @return string[]
+     * @psalm-return list<string>
+     */
+    public function getStringList(string $name): array;
+
+    /**
      * Get an array option by name.
      *
      * @throws RuntimeException When option does not exist.
