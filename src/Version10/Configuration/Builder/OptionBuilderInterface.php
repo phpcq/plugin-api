@@ -7,11 +7,9 @@ namespace Phpcq\PluginApi\Version10\Configuration\Builder;
 /**
  * Interface describes a base option builder. It's designed as base for type based option builders.
  *
- * @psalm-tempate TParent
  * @psalm-template TType
- * @implements NodeBuilderInterface<TParent>
  */
-interface OptionBuilderInterface extends NodeBuilderInterface
+interface OptionBuilderInterface
 {
     /**
      * Mark option as required.
@@ -39,7 +37,4 @@ interface OptionBuilderInterface extends NodeBuilderInterface
 
     /** @psalm-param TType $defaultValue */
     public function withDefaultValue($defaultValue): self;
-
-    /** @psalm-return NodeBuilderInterface<TParent> */
-    public function end(): NodeBuilderInterface;
 }
