@@ -40,15 +40,16 @@ interface OptionsInterface
     public function getBool(string $name): bool;
 
     /**
-     * @psalm-return list
-     */
-    public function getList(string $name): array;
-
-    /**
      * @return string[]
      * @psalm-return list<string>
      */
     public function getStringList(string $name): array;
+
+    /**
+     * @return OptionsInterface[]
+     * @psalm-return list<OptionsInterface>
+     */
+    public function getOptionsList(string $name): array;
 
     /**
      * Get an array option by name.
