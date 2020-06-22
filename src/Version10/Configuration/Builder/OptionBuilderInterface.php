@@ -20,7 +20,7 @@ interface OptionBuilderInterface
      * Normalize a value for the required format. The normalizer is called before the validator.
      *
      * @param callable $normalizer
-     * @psalm-param callable(mixed): TType $normalizer
+     * @psalm-param callable(mixed): mixed $normalizer
      */
     public function withNormalizer(callable $normalizer): self;
 
@@ -31,7 +31,7 @@ interface OptionBuilderInterface
      * is given.
      *
      * @param callable $validator
-     * @psalm-param callable(mixed) $validator
+     * @psalm-param callable(mixed): void $validator
      */
     public function withValidator(callable $validator): self;
 }

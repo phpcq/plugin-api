@@ -11,7 +11,7 @@ interface StringListOptionBuilderInterface extends OptionBuilderInterface
      *
      * The default value is used then no value is configured.
      *
-     * @psalm-param list<string>
+     * @psalm-param list<string> $defaultValue
      *
      * @return $this
      */

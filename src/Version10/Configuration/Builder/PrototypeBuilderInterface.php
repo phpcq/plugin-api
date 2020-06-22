@@ -15,7 +15,6 @@ interface PrototypeBuilderInterface extends OptionBuilderInterface
      * Declare a list of object like items.
      *
      * @return OptionsBuilderInterface
-     * @psalm-return OptionsBuilderInterface<ListOptionBuilderInterface>
      */
     public function ofOptionsValue() : OptionsBuilderInterface;
 
@@ -68,7 +67,7 @@ interface PrototypeBuilderInterface extends OptionBuilderInterface
      *
      * The default value is used then no value is configured.
      *
-     * @return $this
+     * @psalm-param array<string, mixed> $defaultValue
      */
     public function withDefaultValue(array $defaultValue): self;
 }

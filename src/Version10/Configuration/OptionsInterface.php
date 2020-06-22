@@ -47,7 +47,7 @@ interface OptionsInterface
 
     /**
      * @return OptionsInterface[]
-     * @psalm-return list<OptionsInterface>
+     * @psalm-return list<array<string, mixed>>
      */
     public function getOptionsList(string $name): array;
 
