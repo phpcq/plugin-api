@@ -42,11 +42,14 @@ interface PrototypeBuilderInterface extends OptionBuilderInterface
     public function ofIntValue(): IntOptionBuilderInterface;
 
     /**
-     * Define a list prototype value.
-     *
-     * @return ListOptionBuilderInterface
+     * Define a string list prototype value.
      */
-    public function ofListValue(): ListOptionBuilderInterface;
+    public function ofStringListValue(): StringListOptionBuilderInterface;
+
+    /**
+     * Define an options list prototype value.
+     */
+    public function ofOptionsListValue(): OptionsListOptionBuilderInterface;
 
     /**
      * Define a string prototype value.

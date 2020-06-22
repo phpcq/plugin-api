@@ -4,15 +4,13 @@ declare(strict_types=1);
 
 namespace Phpcq\PluginApi\Version10\Configuration\Builder;
 
-interface OptionsListBuilderInterface extends OptionBuilderInterface
+interface OptionsListOptionBuilderInterface extends OptionBuilderInterface
 {
     /**
      * Describe a sub object like array option and return its builder
      *
      * @param string $name        The name of the option.
      * @param string $description The description of the option.
-     *
-     * @psalm-return OptionsBuilderInterface<OptionsBuilderInterface, array<string, mixed>>
      */
     public function describeOptions(string $name, string $description): OptionsBuilderInterface;
 
@@ -31,8 +29,6 @@ interface OptionsListBuilderInterface extends OptionBuilderInterface
      *
      * @param string $name        The name of the option.
      * @param string $description The description of the option.
-     *
-     * @psalm-return OptionBuilderInterface<OptionsBuilderInterface, bool>
      */
     public function describeBoolOption(string $name, string $description): BoolOptionBuilderInterface;
 
@@ -41,8 +37,6 @@ interface OptionsListBuilderInterface extends OptionBuilderInterface
      *
      * @param string $name        The name of the option.
      * @param string $description The description of the option.
-     *
-     * @psalm-return OptionBuilderInterface<OptionsBuilderInterface, float>
      */
     public function describeFloatOption(string $name, string $description): FloatOptionBuilderInterface;
 
@@ -51,8 +45,6 @@ interface OptionsListBuilderInterface extends OptionBuilderInterface
      *
      * @param string $name        The name of the option.
      * @param string $description The description of the option.
-     *
-     * @psalm-return OptionBuilderInterface<OptionsBuilderInterface, int>
      */
     public function describeIntOption(string $name, string $description): IntOptionBuilderInterface;
 
@@ -61,8 +53,6 @@ interface OptionsListBuilderInterface extends OptionBuilderInterface
      *
      * @param string $name        The name of the option.
      * @param string $description The description of the option.
-     *
-     * @psalm-return OptionBuilderInterface<OptionsBuilderInterface, string>
      */
     public function describeStringOption(string $name, string $description): StringOptionBuilderInterface;
 
@@ -71,8 +61,6 @@ interface OptionsListBuilderInterface extends OptionBuilderInterface
      *
      * @param string $name        The option name.
      * @param string $description Description of the options.
-     *
-     * @psalm-return EnumOptionBuilderInterface<OptionsBuilderInterface>
      */
     public function describeEnumOption(string $name, string $description): EnumOptionBuilderInterface;
 
@@ -81,10 +69,16 @@ interface OptionsListBuilderInterface extends OptionBuilderInterface
      *
      * @param string $name        The option name.
      * @param string $description Description of the options.
-     *
-     * @psalm-return EnumOptionBuilderInterface<OptionsBuilderInterface>
      */
-    public function describeListOption(string $name, string $description): ListOptionBuilderInterface;
+    public function describeStringListOption(string $name, string $description): StringListOptionBuilderInterface;
+
+    /**
+     * Describe a list option and return its builder.
+     *
+     * @param string $name        The option name.
+     * @param string $description Description of the options.
+     */
+    public function describeOptionsListOption(string $name, string $description): OptionsListOptionBuilderInterface;
 
     /**
      * Define a default value.
