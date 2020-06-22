@@ -55,7 +55,7 @@ interface OptionsInterface
      *
      * @throws RuntimeException When option does not exist.
      */
-    public function getArray(string $name): OptionsInterface;
+    public function getOptions(string $name): OptionsInterface;
 
     /**
      * Check if option exists.

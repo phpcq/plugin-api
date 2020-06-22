@@ -36,7 +36,7 @@ interface ListOptionBuilderInterface extends OptionBuilderInterface
      * @return OptionsBuilderInterface
      * @psalm-return OptionsBuilderInterface<ListOptionBuilderInterface>
      */
-    public function ofArrayItems(): OptionsBuilderInterface;
+    public function ofOptionsItems(): OptionsBuilderInterface;
 
     /**
      * Register a validator which validates a single item of the given list value.

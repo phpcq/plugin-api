@@ -17,7 +17,7 @@ interface OptionsBuilderInterface extends OptionBuilderInterface
      *
      * @psalm-return OptionsBuilderInterface<OptionsBuilderInterface, array<string, mixed>>
      */
-    public function describeArrayOption(string $name, string $description): OptionsBuilderInterface;
+    public function describeOptions(string $name, string $description): OptionsBuilderInterface;
 
     /**
      * Describe a prototype and return its builder
