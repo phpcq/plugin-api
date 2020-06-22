@@ -6,6 +6,11 @@ namespace Phpcq\PluginApi\Version10\Configuration;
 
 use Phpcq\PluginApi\Version10\Configuration\Builder\OptionsBuilderInterface;
 
+/**
+ * Interface describes the configuration builder for a plugin.
+ *
+ * Each plugin supporting configuration has to describe it's own configuration.
+ */
 interface PluginConfigurationBuilderInterface extends OptionsBuilderInterface
 {
     /**

@@ -37,7 +37,7 @@ interface OptionsBuilderInterface extends OptionBuilderInterface
      *
      * @psalm-return OptionBuilderInterface<OptionsBuilderInterface, bool>
      */
-    public function describeBoolOption(string $name, string $description): OptionBuilderInterface;
+    public function describeBoolOption(string $name, string $description): BoolOptionBuilderInterface;
 
     /**
      * Describe a float option and return its builder.
@@ -47,7 +47,7 @@ interface OptionsBuilderInterface extends OptionBuilderInterface
      *
      * @psalm-return OptionBuilderInterface<OptionsBuilderInterface, float>
      */
-    public function describeFloatOption(string $name, string $description): OptionBuilderInterface;
+    public function describeFloatOption(string $name, string $description): FloatOptionBuilderInterface;
 
     /**
      * Describe an integer option and return its builder.
@@ -57,7 +57,7 @@ interface OptionsBuilderInterface extends OptionBuilderInterface
      *
      * @psalm-return OptionBuilderInterface<OptionsBuilderInterface, int>
      */
-    public function describeIntOption(string $name, string $description): OptionBuilderInterface;
+    public function describeIntOption(string $name, string $description): IntOptionBuilderInterface;
 
     /**
      * Describe a string option and return its builder.
@@ -67,7 +67,7 @@ interface OptionsBuilderInterface extends OptionBuilderInterface
      *
      * @psalm-return OptionBuilderInterface<OptionsBuilderInterface, string>
      */
-    public function describeStringOption(string $name, string $description): OptionBuilderInterface;
+    public function describeStringOption(string $name, string $description): StringOptionBuilderInterface;
 
     /**
      * Describe an enum option and return its builder.

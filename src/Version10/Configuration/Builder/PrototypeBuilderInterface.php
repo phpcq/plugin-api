@@ -4,7 +4,12 @@ declare(strict_types=1);
 
 namespace Phpcq\PluginApi\Version10\Configuration\Builder;
 
-interface PrototypeBuilderInterface extends OptionBuilderInterface
+/**
+ * Interface describes an prototype option.
+ *
+ * A prototype option is an array with string key containing same values. The value has to be explicit described.
+ */
+interface PrototypeBuilderInterface
 {
     /**
      * Declare a list of object like items.
@@ -16,10 +21,8 @@ interface PrototypeBuilderInterface extends OptionBuilderInterface
 
     /**
      * Define a bool prototype value.
-     *
-     * @return $this
      */
-    public function ofBoolValue() : self;
+    public function ofBoolValue() : BoolOptionBuilderInterface;
 
     /**
      * Define an enum prototype value.
@@ -30,17 +33,13 @@ interface PrototypeBuilderInterface extends OptionBuilderInterface
 
     /**
      * Define a float prototype value.
-     *
-     * @return $this
      */
-    public function ofFloatValue(): self;
+    public function ofFloatValue(): FloatOptionBuilderInterface;
 
     /**
      * Define an integer prototype value.
-     *
-     * @return $this
      */
-    public function ofIntValue(): self;
+    public function ofIntValue(): IntOptionBuilderInterface;
 
     /**
      * Define a list prototype value.
@@ -51,10 +50,8 @@ interface PrototypeBuilderInterface extends OptionBuilderInterface
 
     /**
      * Define a string prototype value.
-     *
-     * @return $this
      */
-    public function ofStringValue() : self;
+    public function ofStringValue() : StringOptionBuilderInterface;
 
     /**
      * Define a prototype vale.
