@@ -30,4 +30,13 @@ interface ListOptionBuilderInterface extends OptionBuilderInterface
      * @return OptionsBuilderInterface
      */
     public function ofOptionsItems(): OptionsBuilderInterface;
+
+    /**
+     * Define a default value.
+     *
+     * The default value is used then no value is configured.
+     *
+     * @return $this
+     */
+    public function withDefaultValue(array $defaultValue): self;
 }

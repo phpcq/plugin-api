@@ -9,7 +9,7 @@ namespace Phpcq\PluginApi\Version10\Configuration\Builder;
  *
  * A prototype option is an array with string key containing same values. The value has to be explicit described.
  */
-interface PrototypeBuilderInterface
+interface PrototypeBuilderInterface extends OptionBuilderInterface
 {
     /**
      * Declare a list of object like items.
@@ -17,7 +17,7 @@ interface PrototypeBuilderInterface
      * @return OptionsBuilderInterface
      * @psalm-return OptionsBuilderInterface<ListOptionBuilderInterface>
      */
-    public function ofArrayValue() : OptionsBuilderInterface;
+    public function ofOptionsValue() : OptionsBuilderInterface;
 
     /**
      * Define a bool prototype value.
@@ -59,4 +59,13 @@ interface PrototypeBuilderInterface
      * @return PrototypeBuilderInterface
      */
     public function ofPrototypeValue(): PrototypeBuilderInterface;
+
+    /**
+     * Define a default value.
+     *
+     * The default value is used then no value is configured.
+     *
+     * @return $this
+     */
+    public function withDefaultValue(array $defaultValue): self;
 }

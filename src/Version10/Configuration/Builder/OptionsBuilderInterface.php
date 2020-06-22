@@ -88,4 +88,15 @@ interface OptionsBuilderInterface extends OptionBuilderInterface
      * @psalm-return EnumOptionBuilderInterface<OptionsBuilderInterface>
      */
     public function describeListOption(string $name, string $description): ListOptionBuilderInterface;
+
+    /**
+     * Define a default value.
+     *
+     * The default value is used then no value is configured.
+     *
+     * @psalm-param array<string,mixed> $defaultValue
+     *
+     * @return $this
+     */
+    public function withDefaultValue(array $defaultValue): self;
 }
