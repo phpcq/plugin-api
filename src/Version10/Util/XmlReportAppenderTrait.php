@@ -101,6 +101,7 @@ trait XmlReportAppenderTrait
 
     /**
      * @SuppressWarnings(PHPMD.UnusedLocalVariable)
+     * @SuppressWarnings(PHPMD.ExcessiveMethodLength)
      */
     public static function transformFile(string $fileName, string $rootDir): OutputTransformerFactoryInterface
     {
@@ -143,6 +144,10 @@ trait XmlReportAppenderTrait
                     private $rootDir;
                     /** @var ToolReportInterface */
                     private $report;
+                    /** @var BufferedLineReader */
+                    private $stdOut;
+                    /** @var BufferedLineReader */
+                    private $stdErr;
 
                     /**
                      * @psalm-param class-string<XmlReportAppenderInterface> $calledClass
@@ -157,16 +162,42 @@ trait XmlReportAppenderTrait
                         $this->fileName    = $fileName;
                         $this->rootDir     = $rootDir;
                         $this->report      = $report;
+                        $this->stdOut      = BufferedLineReader::create();
+                        $this->stdErr      = BufferedLineReader::create();
                     }
 
                     public function write(string $data, int $channel): void
                     {
-                        // No op in here.
+                        if (OutputInterface::CHANNEL_STDERR === $channel) {
+                            $this->stdErr->push($data);
+                            return;
+                        }
+                        $this->stdOut->push($data);
                     }
 
                     public function finish(int $exitCode): void
                     {
                         $this->calledClass::appendFileTo($this->report, $this->fileName, $this->rootDir);
+                        if ($exitCode !== 0) {
+                            $contents = [];
+                            while (null !== $line = $this->stdOut->fetch()) {
+                                $contents[] = $line;
+                            }
+                            $this->report
+                                ->addAttachment('output.log')
+                                ->fromString(implode("\n", $contents))
+                                ->setMimeType('text/plain')
+                                ->end();
+                            $contents = [];
+                            while (null !== $line = $this->stdErr->fetch()) {
+                                $contents[] = $line;
+                            }
+                            $this->report
+                                ->addAttachment('error.log')
+                                ->fromString(implode("\n", $contents))
+                                ->setMimeType('text/plain')
+                                ->end();
+                        }
                         $this->report->close(
                             $exitCode === 0 ? ToolReportInterface::STATUS_PASSED : ToolReportInterface::STATUS_FAILED
                         );
