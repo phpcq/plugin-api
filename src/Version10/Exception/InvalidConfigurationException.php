@@ -6,6 +6,6 @@ namespace Phpcq\PluginApi\Version10\Exception;
 
 use RuntimeException;
 
-final class InvalidConfigurationException extends RuntimeException implements Exception
+class InvalidConfigurationException extends RuntimeException implements Exception
 {
 }
