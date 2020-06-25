@@ -19,7 +19,7 @@ interface ProjectConfigInterface
     /**
      * Get list of source directories.
      *
-     * @return array
+     * @return string[]
      */
     public function getDirectories(): array;
 
@@ -29,4 +29,11 @@ interface ProjectConfigInterface
      * @return string
      */
     public function getArtifactOutputPath(): string;
+
+    /**
+     * Get the number of maximal supported cpu cores.
+     *
+     * @return int
+     */
+    public function getMaxCpuCores(): int;
 }

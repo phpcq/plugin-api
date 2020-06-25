@@ -2,12 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Phpcq\PluginApi\Version10;
+namespace Phpcq\PluginApi\Version10\Report;
 
-use Phpcq\PluginApi\Version10\Report\AttachmentBuilderInterface;
-use Phpcq\PluginApi\Version10\Report\DiagnosticBuilderInterface;
-use Phpcq\PluginApi\Version10\Report\DiffBuilderInterface;
+use Phpcq\PluginApi\Version10\Exception\ReportClosedException;
+use Phpcq\PluginApi\Version10\Exception\RuntimeException;
 
+/**
+ * @psalm-type TDiagnosticSeverity = ToolReportInterface::SEVERITY_NONE
+ * |ToolReportInterface::SEVERITY_INFO
+ * |ToolReportInterface::SEVERITY_MARGINAL
+ * |ToolReportInterface::SEVERITY_MINOR
+ * |ToolReportInterface::SEVERITY_MAJOR
+ * |ToolReportInterface::SEVERITY_FATAL
+ */
 interface ToolReportInterface
 {
     public const STATUS_STARTED = ReportInterface::STATUS_STARTED;
@@ -16,30 +23,43 @@ interface ToolReportInterface
     public const STATUS_SKIPPED = 'skipped';
 
     /**
+     * A non issue - strictly informational (additional debug info requested like tool execution argument -
+     * only to be exported if threshold is set to none )
+     */
+    public const SEVERITY_NONE = 'none';
+
+    /**
      * An non issue - strictly informational.
      */
     public const SEVERITY_INFO  = 'info';
 
     /**
-     * Normal but significant diagnostic - no action has to be taken.
+     * Marginal issue - no immediate action has to be taken (could be info by tools like psalm).
      */
-    public const SEVERITY_NOTICE  = 'notice';
+    public const SEVERITY_MARGINAL  = 'marginal';
 
     /**
-     * An issue that should be fixed.
+     * A minor issue - action should be taken but is not required (could be code style violations or the like).
      */
-    public const SEVERITY_WARNING = 'warning';
+    public const SEVERITY_MINOR  = 'minor';
 
     /**
-     * An issue that MUST be fixed.
+     * A major issue - action MUST be taken (could be failing unit tests).
      */
-    public const SEVERITY_ERROR = 'error';
+    public const SEVERITY_MAJOR  = 'major';
+
+    /**
+     * A fatal issue - (could be missing dependencies or the like which make the project unusable).
+     */
+    public const SEVERITY_FATAL = 'fatal';
 
     /**
      * Build a diagnostic entry.
      *
      * @param string $severity The severity of the error - one of the self::SEVERITY_* constants.
      * @param string $message  The error message.
+     *
+     * @psalm-param TDiagnosticSeverity $severity
      *
      * @return DiagnosticBuilderInterface
      *

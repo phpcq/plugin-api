@@ -6,7 +6,7 @@ namespace Phpcq\PluginApi\Version10\Util;
 
 use DOMElement;
 use DOMNode;
-use Phpcq\PluginApi\Version10\ToolReportInterface;
+use Phpcq\PluginApi\Version10\Report\ToolReportInterface;
 
 /**
  * Helper class to handle JUnit log files.
@@ -15,6 +15,13 @@ use Phpcq\PluginApi\Version10\ToolReportInterface;
  *
  * Format: https://github.com/windyroad/JUnit-Schema/blob/master/JUnit.xsd
  * At task: http://svn.apache.org/repos/asf/ant/core/trunk/src/main/org/apache/tools/ant/taskdefs/optional/junit/XMLJUnitResultFormatter.java
+ *
+ * @psalm-type TDiagnosticSeverity = ToolReportInterface::SEVERITY_NONE
+ * |ToolReportInterface::SEVERITY_INFO
+ * |ToolReportInterface::SEVERITY_MARGINAL
+ * |ToolReportInterface::SEVERITY_MINOR
+ * |ToolReportInterface::SEVERITY_MAJOR
+ * |ToolReportInterface::SEVERITY_FATAL
  */
 final class JUnitReportAppender implements XmlReportAppenderInterface
 {
@@ -116,15 +123,16 @@ final class JUnitReportAppender implements XmlReportAppenderInterface
         }
     }
 
+    /** @psalm-return ?TDiagnosticSeverity */
     private function getSeverity(DOMElement $childNode): ?string
     {
         switch ($childNode->nodeName) {
             case 'error':
             case 'failure':
-                return ToolReportInterface::SEVERITY_ERROR;
+                return ToolReportInterface::SEVERITY_MAJOR;
                 break;
             case 'warning':
-                return ToolReportInterface::SEVERITY_WARNING;
+                return ToolReportInterface::SEVERITY_MINOR;
                 break;
             case 'skipped':
             case 'system-err':

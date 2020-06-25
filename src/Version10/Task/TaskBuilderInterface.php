@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Phpcq\PluginApi\Version10\Task;
 
-use Phpcq\PluginApi\Version10\OutputTransformerFactoryInterface;
+use Phpcq\PluginApi\Version10\Output\OutputTransformerFactoryInterface;
 use Traversable;
 
 interface TaskBuilderInterface

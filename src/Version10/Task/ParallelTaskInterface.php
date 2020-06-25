@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Phpcq\PluginApi\Version10\Task;
 
-use Phpcq\PluginApi\Version10\RuntimeException;
+use Phpcq\PluginApi\Version10\Exception\RuntimeException;
 
 /**
  * This interface describes a task that can be run in parallel to other tasks.

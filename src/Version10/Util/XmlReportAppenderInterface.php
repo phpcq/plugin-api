@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Phpcq\PluginApi\Version10\Util;
 
-use Phpcq\PluginApi\Version10\OutputTransformerFactoryInterface;
-use Phpcq\PluginApi\Version10\ToolReportInterface;
+use Phpcq\PluginApi\Version10\Output\OutputTransformerFactoryInterface;
+use Phpcq\PluginApi\Version10\Report\ToolReportInterface;
 
 interface XmlReportAppenderInterface
 {

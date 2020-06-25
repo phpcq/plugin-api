@@ -6,7 +6,7 @@ namespace Phpcq\PluginApi\Version10;
 
 use Phpcq\PluginApi\Version10\Task\TaskFactoryInterface;
 
-interface BuildConfigInterface
+interface EnvironmentInterface
 {
     /**
      * Get the project configuration.
