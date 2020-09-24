@@ -54,6 +54,11 @@ interface TaskReportInterface
     public const SEVERITY_FATAL = 'fatal';
 
     /**
+     * Add a metadata
+     */
+    public function addMetadata(string $name, string $value): self;
+
+    /**
      * Build a diagnostic entry.
      *
      * @param string $severity The severity of the error - one of the self::SEVERITY_* constants.
