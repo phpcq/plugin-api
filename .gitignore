@@ -14,3 +14,6 @@ nbproject/
 
 # composer related
 vendor/
+
+# tools
+.phpunit.result.cache
