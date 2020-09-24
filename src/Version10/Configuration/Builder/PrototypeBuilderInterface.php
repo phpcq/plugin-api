@@ -40,12 +40,12 @@ interface PrototypeBuilderInterface extends OptionBuilderInterface
      *
      * @return OptionsBuilderInterface
      */
-    public function ofOptionsValue() : OptionsBuilderInterface;
+    public function ofOptionsValue(): OptionsBuilderInterface;
 
     /**
      * Define a bool prototype value.
      */
-    public function ofBoolValue() : BoolOptionBuilderInterface;
+    public function ofBoolValue(): BoolOptionBuilderInterface;
 
     /**
      * Define an enum prototype value.
@@ -77,7 +77,7 @@ interface PrototypeBuilderInterface extends OptionBuilderInterface
     /**
      * Define a string prototype value.
      */
-    public function ofStringValue() : StringOptionBuilderInterface;
+    public function ofStringValue(): StringOptionBuilderInterface;
 
     /**
      * Define a prototype vale.

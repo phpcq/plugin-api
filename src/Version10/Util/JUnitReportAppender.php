@@ -6,7 +6,7 @@ namespace Phpcq\PluginApi\Version10\Util;
 
 use DOMElement;
 use DOMNode;
-use Phpcq\PluginApi\Version10\Report\ToolReportInterface;
+use Phpcq\PluginApi\Version10\Report\TaskReportInterface;
 
 /**
  * Helper class to handle JUnit log files.
@@ -16,18 +16,18 @@ use Phpcq\PluginApi\Version10\Report\ToolReportInterface;
  * Format: https://github.com/windyroad/JUnit-Schema/blob/master/JUnit.xsd
  * At task: http://svn.apache.org/repos/asf/ant/core/trunk/src/main/org/apache/tools/ant/taskdefs/optional/junit/XMLJUnitResultFormatter.java
  *
- * @psalm-type TDiagnosticSeverity = ToolReportInterface::SEVERITY_NONE
- * |ToolReportInterface::SEVERITY_INFO
- * |ToolReportInterface::SEVERITY_MARGINAL
- * |ToolReportInterface::SEVERITY_MINOR
- * |ToolReportInterface::SEVERITY_MAJOR
- * |ToolReportInterface::SEVERITY_FATAL
+ * @psalm-type TDiagnosticSeverity = TaskReportInterface::SEVERITY_NONE
+ * |TaskReportInterface::SEVERITY_INFO
+ * |TaskReportInterface::SEVERITY_MARGINAL
+ * |TaskReportInterface::SEVERITY_MINOR
+ * |TaskReportInterface::SEVERITY_MAJOR
+ * |TaskReportInterface::SEVERITY_FATAL
  */
 final class JUnitReportAppender implements XmlReportAppenderInterface
 {
     use XmlReportAppenderTrait;
 
-    protected function processXml(ToolReportInterface $report): void
+    protected function processXml(TaskReportInterface $report): void
     {
         $rootNode = $this->xmlDocument->firstChild;
 
@@ -43,7 +43,7 @@ final class JUnitReportAppender implements XmlReportAppenderInterface
         }
     }
 
-    private function walkTestSuite(ToolReportInterface $report, DOMElement $testsuite): void
+    private function walkTestSuite(TaskReportInterface $report, DOMElement $testsuite): void
     {
         foreach ($testsuite->childNodes as $childNode) {
             if (!$childNode instanceof DOMElement) {
@@ -80,7 +80,7 @@ final class JUnitReportAppender implements XmlReportAppenderInterface
         return false;
     }
 
-    private function walkTestCase(ToolReportInterface $report, DOMElement $testCase): void
+    private function walkTestCase(TaskReportInterface $report, DOMElement $testCase): void
     {
         /*
          * <testcase> has the following attributes:
@@ -129,10 +129,10 @@ final class JUnitReportAppender implements XmlReportAppenderInterface
         switch ($childNode->nodeName) {
             case 'error':
             case 'failure':
-                return ToolReportInterface::SEVERITY_MAJOR;
+                return TaskReportInterface::SEVERITY_MAJOR;
                 break;
             case 'warning':
-                return ToolReportInterface::SEVERITY_MINOR;
+                return TaskReportInterface::SEVERITY_MINOR;
                 break;
             case 'skipped':
             case 'system-err':

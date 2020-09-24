@@ -58,9 +58,12 @@ phpcq:
 
 tool-config:
   phpunit:
-    custom_flags:
 
   phpcpd:
+    names_exclude:
+      - OptionsBuilderInterface.php
+      - OptionsListOptionBuilderInterface.php
+
   #  exclude:
   #  names:
   #  names_exclude:

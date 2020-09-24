@@ -44,9 +44,9 @@ interface AttachmentBuilderInterface
      *
      * After calling this, no further calls will have any effect.
      *
-     * @return ToolReportInterface
+     * @return TaskReportInterface
      *
      * @throws RuntimeException When no content has been set.
      */
-    public function end(): ToolReportInterface;
+    public function end(): TaskReportInterface;
 }

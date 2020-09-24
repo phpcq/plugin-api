@@ -9,7 +9,7 @@ use DOMElement;
 use Phpcq\PluginApi\Version10\Output\OutputInterface;
 use Phpcq\PluginApi\Version10\Output\OutputTransformerFactoryInterface;
 use Phpcq\PluginApi\Version10\Output\OutputTransformerInterface;
-use Phpcq\PluginApi\Version10\Report\ToolReportInterface;
+use Phpcq\PluginApi\Version10\Report\TaskReportInterface;
 
 trait XmlReportAppenderTrait
 {
@@ -48,7 +48,7 @@ trait XmlReportAppenderTrait
                 $this->rootDir     = $rootDir;
             }
 
-            public function createFor(ToolReportInterface $report): OutputTransformerInterface
+            public function createFor(TaskReportInterface $report): OutputTransformerInterface
             {
                 return new class (
                     $this->calledClass,
@@ -64,7 +64,7 @@ trait XmlReportAppenderTrait
                     private $buffer = '';
                     /** @var string */
                     private $rootDir;
-                    /** @var ToolReportInterface */
+                    /** @var TaskReportInterface */
                     private $report;
 
                     /**
@@ -73,7 +73,7 @@ trait XmlReportAppenderTrait
                     public function __construct(
                         string $calledClass,
                         string $rootDir,
-                        ToolReportInterface $report
+                        TaskReportInterface $report
                     ) {
                         $this->calledClass = $calledClass;
                         $this->rootDir     = $rootDir;
@@ -91,7 +91,7 @@ trait XmlReportAppenderTrait
                     {
                         $this->calledClass::appendBufferTo($this->report, $this->buffer, $this->rootDir);
                         $this->report->close(
-                            $exitCode === 0 ? ToolReportInterface::STATUS_PASSED : ToolReportInterface::STATUS_FAILED
+                            $exitCode === 0 ? TaskReportInterface::STATUS_PASSED : TaskReportInterface::STATUS_FAILED
                         );
                     }
                 };
@@ -126,7 +126,7 @@ trait XmlReportAppenderTrait
                 $this->rootDir     = $rootDir;
             }
 
-            public function createFor(ToolReportInterface $report): OutputTransformerInterface
+            public function createFor(TaskReportInterface $report): OutputTransformerInterface
             {
                 return new class (
                     $this->calledClass,
@@ -142,7 +142,7 @@ trait XmlReportAppenderTrait
                     private $fileName;
                     /** @var string */
                     private $rootDir;
-                    /** @var ToolReportInterface */
+                    /** @var TaskReportInterface */
                     private $report;
                     /** @var BufferedLineReader */
                     private $stdOut;
@@ -156,7 +156,7 @@ trait XmlReportAppenderTrait
                         string $calledClass,
                         string $fileName,
                         string $rootDir,
-                        ToolReportInterface $report
+                        TaskReportInterface $report
                     ) {
                         $this->calledClass = $calledClass;
                         $this->fileName    = $fileName;
@@ -199,7 +199,7 @@ trait XmlReportAppenderTrait
                                 ->end();
                         }
                         $this->report->close(
-                            $exitCode === 0 ? ToolReportInterface::STATUS_PASSED : ToolReportInterface::STATUS_FAILED
+                            $exitCode === 0 ? TaskReportInterface::STATUS_PASSED : TaskReportInterface::STATUS_FAILED
                         );
                     }
                 };
@@ -207,7 +207,7 @@ trait XmlReportAppenderTrait
         };
     }
 
-    public static function appendFileTo(ToolReportInterface $report, string $fileName, string $rootDir): void
+    public static function appendFileTo(TaskReportInterface $report, string $fileName, string $rootDir): void
     {
         $xmlDocument = new DOMDocument('1.0');
         $xmlDocument->load($fileName);
@@ -216,7 +216,7 @@ trait XmlReportAppenderTrait
         $instance->processXml($report);
     }
 
-    public static function appendBufferTo(ToolReportInterface $report, string $buffer, string $rootDir): void
+    public static function appendBufferTo(TaskReportInterface $report, string $buffer, string $rootDir): void
     {
         $xmlDocument = new DOMDocument('1.0');
         $xmlDocument->loadXML($buffer);
@@ -253,5 +253,5 @@ trait XmlReportAppenderTrait
         return (int) $value;
     }
 
-    abstract protected function processXml(ToolReportInterface $report): void;
+    abstract protected function processXml(TaskReportInterface $report): void;
 }

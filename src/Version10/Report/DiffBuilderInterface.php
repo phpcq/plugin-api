@@ -38,7 +38,7 @@ interface DiffBuilderInterface
      *
      * After calling this, no further calls will have any effect.
      *
-     * @return ToolReportInterface
+     * @return TaskReportInterface
      */
-    public function end(): ToolReportInterface;
+    public function end(): TaskReportInterface;
 }

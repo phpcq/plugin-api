@@ -6,7 +6,7 @@ namespace Phpcq\PluginApi\Version10\Util;
 
 use DOMElement;
 use DOMNode;
-use Phpcq\PluginApi\Version10\Report\ToolReportInterface;
+use Phpcq\PluginApi\Version10\Report\TaskReportInterface;
 
 use function strlen;
 use function strpos;
@@ -17,12 +17,12 @@ use function substr;
  *
  * Provides static reading of the log and usage as post processor.
  *
- *  @psalm-type TDiagnosticSeverity = ToolReportInterface::SEVERITY_NONE
- * |ToolReportInterface::SEVERITY_INFO
- * |ToolReportInterface::SEVERITY_MARGINAL
- * |ToolReportInterface::SEVERITY_MINOR
- * |ToolReportInterface::SEVERITY_MAJOR
- * |ToolReportInterface::SEVERITY_FATAL
+ *  @psalm-type TDiagnosticSeverity = TaskReportInterface::SEVERITY_NONE
+ * |TaskReportInterface::SEVERITY_INFO
+ * |TaskReportInterface::SEVERITY_MARGINAL
+ * |TaskReportInterface::SEVERITY_MINOR
+ * |TaskReportInterface::SEVERITY_MAJOR
+ * |TaskReportInterface::SEVERITY_FATAL
  */
 final class CheckstyleReportAppender implements XmlReportAppenderInterface
 {
@@ -30,13 +30,13 @@ final class CheckstyleReportAppender implements XmlReportAppenderInterface
 
     // TODO: Check if mapping makes sense
     private const SEVERITY_MAP = [
-        'error'   => ToolReportInterface::SEVERITY_MAJOR,
-        'warning' => ToolReportInterface::SEVERITY_MINOR,
-        'info'    => ToolReportInterface::SEVERITY_MARGINAL,
-        'ignore'  => ToolReportInterface::SEVERITY_INFO,
+        'error'   => TaskReportInterface::SEVERITY_MAJOR,
+        'warning' => TaskReportInterface::SEVERITY_MINOR,
+        'info'    => TaskReportInterface::SEVERITY_MARGINAL,
+        'ignore'  => TaskReportInterface::SEVERITY_INFO,
     ];
 
-    protected function processXml(ToolReportInterface $report): void
+    protected function processXml(TaskReportInterface $report): void
     {
         $rootNode = $this->xmlDocument->firstChild;
 
@@ -83,6 +83,6 @@ final class CheckstyleReportAppender implements XmlReportAppenderInterface
     {
         $errorType = $this->getXmlAttribute($errorNode, 'severity', 'error');
 
-        return self::SEVERITY_MAP[$errorType] ?? ToolReportInterface::SEVERITY_MAJOR;
+        return self::SEVERITY_MAP[$errorType] ?? TaskReportInterface::SEVERITY_MAJOR;
     }
 }
