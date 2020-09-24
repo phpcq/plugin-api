@@ -6,7 +6,7 @@ namespace Phpcq\PluginApi\Test\Version10;
 
 use Phpcq\PluginApi\Version10\Exception\Exception;
 use Phpcq\PluginApi\Version10\Exception\ReportClosedException;
-use Phpcq\PluginApi\Version10\Report\ToolReportInterface;
+use Phpcq\PluginApi\Version10\Report\TaskReportInterface;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -16,7 +16,7 @@ final class ReportClosedExceptionTest extends TestCase
 {
     public function testInstantiation(): void
     {
-        $report = $this->getMockForAbstractClass(ToolReportInterface::class);
+        $report = $this->getMockForAbstractClass(TaskReportInterface::class);
         $exception = new ReportClosedException($report);
 
         $this->assertInstanceOf(Exception::class, $exception);

@@ -10,5 +10,6 @@ interface ReportInterface
     public const STATUS_PASSED  = 'passed';
     public const STATUS_FAILED  = 'failed';
 
-    public function addToolReport(string $toolName): ToolReportInterface;
+    /** @psalm-param array<string,string> $metadata */
+    public function addTaskReport(string $toolName, array $metadata = []): TaskReportInterface;
 }

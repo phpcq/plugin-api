@@ -8,14 +8,14 @@ use Phpcq\PluginApi\Version10\Exception\ReportClosedException;
 use Phpcq\PluginApi\Version10\Exception\RuntimeException;
 
 /**
- * @psalm-type TDiagnosticSeverity = ToolReportInterface::SEVERITY_NONE
- * |ToolReportInterface::SEVERITY_INFO
- * |ToolReportInterface::SEVERITY_MARGINAL
- * |ToolReportInterface::SEVERITY_MINOR
- * |ToolReportInterface::SEVERITY_MAJOR
- * |ToolReportInterface::SEVERITY_FATAL
+ * @psalm-type TDiagnosticSeverity = TaskReportInterface::SEVERITY_NONE
+ * |TaskReportInterface::SEVERITY_INFO
+ * |TaskReportInterface::SEVERITY_MARGINAL
+ * |TaskReportInterface::SEVERITY_MINOR
+ * |TaskReportInterface::SEVERITY_MAJOR
+ * |TaskReportInterface::SEVERITY_FATAL
  */
-interface ToolReportInterface
+interface TaskReportInterface
 {
     public const STATUS_STARTED = ReportInterface::STATUS_STARTED;
     public const STATUS_PASSED  = ReportInterface::STATUS_PASSED;
