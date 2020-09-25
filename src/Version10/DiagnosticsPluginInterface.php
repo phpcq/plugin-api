@@ -16,7 +16,7 @@ interface DiagnosticsPluginInterface extends ConfigurationPluginInterface
      * Process plugin configuration and create tasks.
      *
      * @param PluginConfigurationInterface $config      The plugin configuration.
-     * @param EnvironmentInterface         $buildConfig The build configuration.
+     * @param EnvironmentInterface         $environment The build configuration.
      *
      * @return TaskInterface[]
      *
@@ -24,6 +24,6 @@ interface DiagnosticsPluginInterface extends ConfigurationPluginInterface
      */
     public function createDiagnosticTasks(
         PluginConfigurationInterface $config,
-        EnvironmentInterface $buildConfig
+        EnvironmentInterface $environment
     ): iterable;
 }
