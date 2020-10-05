@@ -38,4 +38,11 @@ interface EnvironmentInterface
      * @return string
      */
     public function getUniqueTempFile(?PluginInterface $plugin = null, ?string $suffix = null): string;
+
+    /**
+     * Return the amount of available threads to consume.
+     *
+     * @return int
+     */
+    public function getAvailableThreads(): int;
 }
