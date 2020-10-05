@@ -6,6 +6,7 @@ namespace Phpcq\PluginApi\Version10\Util;
 
 use DOMDocument;
 use DOMElement;
+use Phpcq\PluginApi\Version10\Exception\ReportFileNotFoundException;
 use Phpcq\PluginApi\Version10\Output\OutputInterface;
 use Phpcq\PluginApi\Version10\Output\OutputTransformerFactoryInterface;
 use Phpcq\PluginApi\Version10\Output\OutputTransformerInterface;
@@ -210,6 +211,9 @@ trait XmlReportAppenderTrait
     public static function appendFileTo(TaskReportInterface $report, string $fileName, string $rootDir): void
     {
         $xmlDocument = new DOMDocument('1.0');
+        if (!is_readable($fileName)) {
+            throw new ReportFileNotFoundException($fileName);
+        }
         $xmlDocument->load($fileName);
 
         $instance = new self($xmlDocument, $rootDir);
