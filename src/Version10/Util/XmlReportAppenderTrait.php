@@ -178,7 +178,16 @@ trait XmlReportAppenderTrait
 
                     public function finish(int $exitCode): void
                     {
-                        $this->calledClass::appendFileTo($this->report, $this->fileName, $this->rootDir);
+                        try {
+                            $this->calledClass::appendFileTo($this->report, $this->fileName, $this->rootDir);
+                        } catch (ReportFileNotFoundException $exception) {
+                            // If no log has been produced, we log a fatal diagnostic and ensure exit code is non zero.
+                            $this->report->addDiagnostic(
+                                TaskReportInterface::SEVERITY_FATAL,
+                                'Report file was not produced: ' . $exception->getFileName()
+                            );
+                            $exitCode = 1;
+                        }
                         if ($exitCode !== 0) {
                             $contents = [];
                             while (null !== $line = $this->stdOut->fetch()) {
