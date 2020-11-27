@@ -36,7 +36,7 @@ install:
         || echo dev-${TRAVIS_BRANCH}) \
         travis_retry composer update $COMPOSER_FLAGS --prefer-dist --no-interaction;
     fi
-  - ./vendor/bin/phpcq update
+  - ./vendor/bin/phpcq update -v
 
 script:
   - ./vendor/bin/phpcq run -v
