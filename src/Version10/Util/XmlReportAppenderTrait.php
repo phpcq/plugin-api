@@ -220,7 +220,7 @@ trait XmlReportAppenderTrait
     public static function appendFileTo(TaskReportInterface $report, string $fileName, string $rootDir): void
     {
         $xmlDocument = new DOMDocument('1.0');
-        if (!is_readable($fileName)) {
+        if ('' == $fileName || !is_readable($fileName) || 0 === filesize($fileName)) {
             throw new ReportFileNotFoundException($fileName);
         }
         $xmlDocument->load($fileName);
