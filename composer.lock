@@ -4,12 +4,77 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a1f1695c00a760364f97c0fe6d5b38e",
+    "content-hash": "844b4bccba58b39993509087441fd9ed",
     "packages": [],
-    "packages-dev": [],
+    "packages-dev": [
+        {
+            "name": "phpcq/runner-bootstrap",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpcq/runner-bootstrap.git",
+                "reference": "fcabb2655d8c4e20cf11a7893732522b7872708a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpcq/runner-bootstrap/zipball/fcabb2655d8c4e20cf11a7893732522b7872708a",
+                "reference": "fcabb2655d8c4e20cf11a7893732522b7872708a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3"
+            },
+            "default-branch": true,
+            "bin": [
+                "bin/phpcq"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Schiffler",
+                    "email": "c.schiffler@cyberspectrum.de",
+                    "homepage": "http://cyberspectrum.de",
+                    "role": "lead"
+                },
+                {
+                    "name": "David Molineus",
+                    "email": "david.molineus@netzmacht.de",
+                    "homepage": "https://netzmacht.de",
+                    "role": "lead"
+                }
+            ],
+            "description": "PHP code quality composer plugin.",
+            "support": {
+                "issues": "https://github.com/phpcq/runner-bootstrap/issues",
+                "source": "https://github.com/phpcq/runner-bootstrap/tree/master"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/discordier",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/dmolineus",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-27T09:51:07+00:00"
+        }
+    ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "phpcq/runner-bootstrap": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
@@ -17,5 +82,5 @@
         "ext-dom": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }
