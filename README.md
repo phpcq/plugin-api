@@ -1,7 +1,7 @@
-[![Version](http://img.shields.io/packagist/v/phpcq/plugin-api.svg?style=flat-square)](https://packagist.org/packages/phpcq/plugin-api)
-[![License](http://img.shields.io/packagist/l/phpcq/plugin-api.svg?style=flat-square)](https://github.com/phpcq/plugin-api/blob/master/LICENSE)
-[![Downloads](http://img.shields.io/packagist/dt/phpcq/plugin-api.svg?style=flat-square)](https://packagist.org/packages/phpcq/plugin-api)
-[![Stable Build Status](http://img.shields.io/travis/phpcq/plugin-api/master.svg?style=flat-square)](https://travis-ci.org/phpcq/plugin-api)
+[![Stable Build Status](https://img.shields.io/github/checks-status/phpcq/plugin-api/master)](https://travis-ci.org/phpcq/plugin-api)
+[![Version](https://img.shields.io/packagist/v/phpcq/plugin-api.svg?style=flat-square)](https://packagist.org/packages/phpcq/plugin-api)
+[![License](https://img.shields.io/packagist/l/phpcq/plugin-api.svg?style=flat-square)](https://github.com/phpcq/plugin-api/blob/master/LICENSE)
+[![Downloads](https://img.shields.io/packagist/dt/phpcq/plugin-api.svg?style=flat-square)](https://packagist.org/packages/phpcq/plugin-api)
 
 # PHP code quality project
 
@@ -14,4 +14,3 @@ For detailed description please visit our project website [phpcq.org](http://php
 
 This repository holds the plugin interfaces used by the main tool runner
 [phpcq](https://github.com/phpcq/phpcq).
-
