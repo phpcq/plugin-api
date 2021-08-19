@@ -6,18 +6,13 @@
     {
       "name": "Christian Schiffler",
       "email": "c.schiffler@cyberspectrum.de",
-      "homepage": "http://cyberspectrum.de",
+      "homepage": "https://cyberspectrum.de",
       "role": "lead"
     },
     {
       "name": "David Molineus",
       "email": "david.molineus@netzmacht.de",
       "homepage": "https://netzmacht.de",
-      "role": "lead"
-    },
-    {
-      "name": "Stefan Heimes",
-      "email": "stefan_heimes@hotmail.com",
       "role": "lead"
     }
   ],
