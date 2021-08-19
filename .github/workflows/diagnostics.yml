@@ -10,11 +10,11 @@ jobs:
       - name: Pull source
         uses: actions/checkout@v2
 
-      - name: Setup PHP with PECL extension
+      - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '7.4'
-          coverage: xdebug2
+          coverage: xdebug
 
       - name: Cache composer cache directory
         uses: actions/cache@v1
