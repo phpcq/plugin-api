@@ -31,9 +31,6 @@ phpcq:
     phpcs:
       version: ^1.0
       signed: false
-    phpcbf:
-      version: ^1.0
-      signed: false
     composer-normalize:
       version: ^1.0
       signed: false
@@ -97,9 +94,13 @@ tasks:
       standard: PSR12
 
   phpcbf:
+    plugin: phpcs
     config:
       <<: *phpcs-config
       fix: true
 
   phpcpd:
     config:
+      exclude:
+        - src/Version10/Configuration/Builder/OptionsBuilderInterface.php
+        - src/Version10/Configuration/Builder/OptionsListOptionBuilderInterface.php
