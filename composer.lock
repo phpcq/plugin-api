@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "844b4bccba58b39993509087441fd9ed",
+    "content-hash": "4eac83944ab24c68dce4ecb58e087ffc",
     "packages": [],
     "packages-dev": [
         {
@@ -13,16 +13,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpcq/runner-bootstrap.git",
-                "reference": "384a44045002c19253cbcaf0e22f5e41fd3cfbd6"
+                "reference": "f0664b84c7324e2d41d653939ad3bf4f97aaf06f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpcq/runner-bootstrap/zipball/384a44045002c19253cbcaf0e22f5e41fd3cfbd6",
-                "reference": "384a44045002c19253cbcaf0e22f5e41fd3cfbd6",
+                "url": "https://api.github.com/repos/phpcq/runner-bootstrap/zipball/f0664b84c7324e2d41d653939ad3bf4f97aaf06f",
+                "reference": "f0664b84c7324e2d41d653939ad3bf4f97aaf06f",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.3"
+                "php": "^7.3 || ^8.0"
             },
             "default-branch": true,
             "bin": [
@@ -67,7 +67,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-03T07:18:27+00:00"
+            "time": "2021-10-08T18:33:27+00:00"
         }
     ],
     "aliases": [],
@@ -78,9 +78,9 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3",
+        "php": "^7.3 || ^8.0",
         "ext-dom": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
