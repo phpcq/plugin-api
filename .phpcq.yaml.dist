@@ -23,7 +23,7 @@ phpcq:
         phpmd:
           signed: false
     phpcpd:
-      version: ^1.0
+      version: ^1.1
       signed: false
     phploc:
       version: ^1.0
