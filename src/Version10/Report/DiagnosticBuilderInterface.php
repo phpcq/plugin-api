@@ -7,6 +7,46 @@ namespace Phpcq\PluginApi\Version10\Report;
 interface DiagnosticBuilderInterface
 {
     /**
+     * Generic category.
+     */
+    public const CATEGORY_BUG_RISK = 'bug_risk';
+
+    /**
+     * A diagnostic describing some ambiguity.
+     */
+    public const CATEGORY_CLARITY = 'clarity';
+
+    /**
+     * A diagnostic affecting compatibility.
+     */
+    public const CATEGORY_COMPATIBILITY = 'compatibility';
+
+    /**
+     * A diagnostic related to high complexity.
+     */
+    public const CATEGORY_COMPLEXITY = 'complexity';
+
+    /**
+     * Code duplication related.
+     */
+    public const CATEGORY_DUPLICATION = 'duplication';
+
+    /**
+     * A diagnostic related to performance.
+     */
+    public const CATEGORY_PERFORMANCE = 'performance';
+
+    /**
+     * A security related diagnostic.
+     */
+    public const CATEGORY_SECURITY = 'security';
+
+    /**
+     * Code style related diagnostic.
+     */
+    public const CATEGORY_STYLE = 'style';
+
+    /**
      * Add a file reference to the current diagnostic.
      *
      * @param string $file The path to the file, either absolute or relative to project root.
