@@ -35,7 +35,7 @@ jobs:
       - name: Cache composer cache directory
         uses: actions/cache@v1
         env:
-          cache-name: composer-cache-dir
+          cache-name: composer-cache-dir-${{ matrix.php }}
         with:
           path: ~/.cache/composer
           key: ${{ runner.os }}-build-${{ env.cache-name }}
@@ -46,7 +46,7 @@ jobs:
       - name: Cache vendor directory
         uses: actions/cache@v1
         env:
-          cache-name: vendor
+          cache-name: vendor-${{ matrix.php }}
         with:
           path: vendor
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/composer.lock') }}
@@ -59,7 +59,7 @@ jobs:
       - name: Cache phpcq directory
         uses: actions/cache@v1
         env:
-          cache-name: phpcq
+          cache-name: phpcq-${{ matrix.php }}
         with:
           path: .phpcq
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/.phpcq.lock') }}
