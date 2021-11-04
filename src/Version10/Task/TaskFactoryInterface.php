@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Phpcq\PluginApi\Version10\Task;
 
-use Phpcq\Task\TaskBuilder;
-
 interface TaskFactoryInterface
 {
     /**
@@ -24,9 +22,9 @@ interface TaskFactoryInterface
      *                            reporting).
      * @param string[] $arguments The arguments to pass to the phar file.
      *
-     * @return TaskBuilderInterface
+     * @return PhpTaskBuilderInterface
      */
-    public function buildRunPhar(string $toolName, array $arguments = []): TaskBuilderInterface;
+    public function buildRunPhar(string $toolName, array $arguments = []): PhpTaskBuilderInterface;
 
     /**
      * Create a task runner builder to exec a php process.
@@ -35,7 +33,7 @@ interface TaskFactoryInterface
      * @param string[] $arguments The arguments to pass to the php process.
      *                            Pass the executable to run as first and arguments each as separate array item.
      *
-     * @return TaskBuilderInterface
+     * @return PhpTaskBuilderInterface
      */
-    public function buildPhpProcess(string $toolName, array $arguments = []): TaskBuilderInterface;
+    public function buildPhpProcess(string $toolName, array $arguments = []): PhpTaskBuilderInterface;
 }

@@ -58,7 +58,7 @@ interface TaskBuilderInterface
     /**
      * Disable parallel execution for this task.
      *
-     * @return $this
+     * @return self
      */
     public function forceSingleProcess(): self;
 
@@ -71,7 +71,7 @@ interface TaskBuilderInterface
      *
      * @param int $cost The cost factor.
      *
-     * @return $this
+     * @return self
      */
     public function withCosts(int $cost): self;
 
