@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Phpcq\PluginApi\Version10;
 
-use Phpcq\PluginApi\Version10\Configuration\PluginConfigurationInterface;
-use Phpcq\PluginApi\Version10\Task\TaskInterface;
+use Phpcq\PluginApi\Version10\Configuration\CommandConfigurationBuilderInterface;
+use Phpcq\PluginApi\Version10\Task\OutputWritingTaskInterface;
 
 /**
  * This interface describes plugins providing executable tasks.
@@ -13,17 +13,19 @@ use Phpcq\PluginApi\Version10\Task\TaskInterface;
 interface ExecPluginInterface extends PluginInterface
 {
     /**
-     * Process plugin configuration and create tasks.
+     * Describe the exec task which is is provided by the plugin.
      *
-     * @param PluginConfigurationInterface $config      The plugin configuration.
-     * @param EnvironmentInterface         $environment The build configuration.
-     *
-     * @return TaskInterface[]
-     *
-     * @psalm-return \Generator<int, TaskInterface>
+     * @param CommandConfigurationBuilderInterface $configurationBuilder The command configuration builder.
      */
-    public function createExecTasks(
-        PluginConfigurationInterface $config,
-        EnvironmentInterface $environment
-    ): iterable;
+    public function describeExecTask(CommandConfigurationBuilderInterface $configurationBuilder): void;
+
+    /**
+     * Create exec task for the given arguments.
+     *
+     * @param list<string>         $arguments   The console arguments passed through to the task.
+     * @param EnvironmentInterface $environment The environment.
+     *
+     * @return OutputWritingTaskInterface
+     */
+    public function createExecTask(array $arguments, EnvironmentInterface $environment): OutputWritingTaskInterface;
 }
