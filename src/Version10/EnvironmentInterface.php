@@ -30,6 +30,13 @@ interface EnvironmentInterface
     public function getBuildTempDir(): string;
 
     /**
+     * Get the installed directory of the current plugin.
+     *
+     * @return string
+     */
+    public function getInstalledDir(): string;
+
+    /**
      * Obtain an unique temp file name.
      *
      * @param PluginInterface|null $plugin Optional plugin to use in file name prefix.
