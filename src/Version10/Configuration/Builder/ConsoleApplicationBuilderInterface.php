@@ -27,7 +27,7 @@ interface ConsoleApplicationBuilderInterface
      *
      * @return mixed
      */
-    public function withOptionValueSeparators(string ... $separators): self;
+    public function withOptionValueSeparators(string ...$separators): self;
 
     /**
      * Adds a new command to the console application.

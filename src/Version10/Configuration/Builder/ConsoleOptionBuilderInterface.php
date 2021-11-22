@@ -74,5 +74,5 @@ interface ConsoleOptionBuilderInterface
      *
      * @return mixed
      */
-    public function withOptionValueSeparators(string ... $separators): self;
+    public function withOptionValueSeparators(string ...$separators): self;
 }
