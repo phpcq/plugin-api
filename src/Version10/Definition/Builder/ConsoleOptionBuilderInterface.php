@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Phpcq\PluginApi\Version10\Configuration\Builder;
+namespace Phpcq\PluginApi\Version10\Definition\Builder;
 
 /**
  * This interface describes a command option.

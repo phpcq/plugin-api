@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Phpcq\PluginApi\Version10\Configuration;
+namespace Phpcq\PluginApi\Version10\Definition;
 
-use Phpcq\PluginApi\Version10\Configuration\Builder\ConsoleApplicationBuilderInterface;
+use Phpcq\PluginApi\Version10\Definition\Builder\ConsoleApplicationBuilderInterface;
 
-interface ExecTaskConfigurationBuilderInterface
+interface ExecTaskDefinitionBuilderInterface
 {
     /**
      * Describes a console application provided by the plugin.

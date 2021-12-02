@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Phpcq\PluginApi\Version10;
 
-use Phpcq\PluginApi\Version10\Configuration\ExecTaskConfigurationBuilderInterface;
+use Phpcq\PluginApi\Version10\Definition\ExecTaskDefinitionBuilderInterface;
 use Phpcq\PluginApi\Version10\Task\OutputWritingTaskInterface;
 
 /**
@@ -15,10 +15,10 @@ interface ExecPluginInterface extends PluginInterface
     /**
      * Describe the exec task which is provided by the plugin.
      *
-     * @param ExecTaskConfigurationBuilderInterface $configurationBuilder The exec task configuration builder.
+     * @param ExecTaskDefinitionBuilderInterface $definitionBuilder The exec task definition builder.
      */
     public function describeExecTask(
-        ExecTaskConfigurationBuilderInterface $configurationBuilder,
+        ExecTaskDefinitionBuilderInterface $definitionBuilder,
         EnvironmentInterface $environment
     ): void;
 
