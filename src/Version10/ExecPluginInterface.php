@@ -17,7 +17,10 @@ interface ExecPluginInterface extends PluginInterface
      *
      * @param ExecTaskConfigurationBuilderInterface $configurationBuilder The exec task configuration builder.
      */
-    public function describeExecTask(ExecTaskConfigurationBuilderInterface $configurationBuilder): void;
+    public function describeExecTask(
+        ExecTaskConfigurationBuilderInterface $configurationBuilder,
+        EnvironmentInterface $environment
+    ): void;
 
     /**
      * Create exec task for the given arguments.
