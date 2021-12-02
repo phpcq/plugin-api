@@ -58,21 +58,21 @@ interface ConsoleOptionBuilderInterface
      *
      * Example php -d memory_limit=1
      *
-     * @param mixed $defaultValue    An optional default value if no value is provided.
-     * @param array $valueSeparators Supported value separators. If empty an equal sign is assumed.
+     * @param mixed       $defaultValue   An optional default value if no value is provided.
+     * @param string|null $valueSeparator Used value separator. If empty an equal sign is assumed.
      *
      * @return self
      */
-    public function withKeyValueMap($defaultValue = null, array $valueSeparators = []): self;
+    public function withKeyValueMap($defaultValue = null, ?string $valueSeparator = null): self;
 
     /**
      * Overrides the console application setting for the option values separator.
      *
      * If not defined, PHPCQ assumes that only an equal sign is used.
      *
-     * @param list<string> $separators
+     * @param string $separator
      *
      * @return mixed
      */
-    public function withOptionValueSeparators(string ...$separators): self;
+    public function withOptionValueSeparator(string $separator): self;
 }

@@ -19,15 +19,15 @@ interface ConsoleApplicationBuilderInterface
     public function withDescription(string $description): self;
 
     /**
-     * Describe which value separators are supported.
+     * Describe which value separator is uesed.
      *
-     * If not defined, PHPCQ assumes that only an equal sign is used.
+     * If not defined, PHPCQ assumes that an equal sign is used.
      *
-     * @param list<string> $separators
+     * @param string $separator
      *
      * @return mixed
      */
-    public function withOptionValueSeparators(string ...$separators): self;
+    public function withOptionValueSeparator(string $separator): self;
 
     /**
      * Adds a new command to the console application.
