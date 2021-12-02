@@ -7,7 +7,7 @@ namespace Phpcq\PluginApi\Version10\Configuration\Builder;
 /**
  * This interface describes a console command argument.
  */
-interface CommandArgumentBuilderInterface
+interface ConsoleArgumentBuilderInterface
 {
     /**
      * Mark the argument as required. If not defined the argument is considered as optional.

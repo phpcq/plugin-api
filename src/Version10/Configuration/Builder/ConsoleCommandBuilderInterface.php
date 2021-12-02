@@ -14,7 +14,7 @@ interface ConsoleCommandBuilderInterface
      *
      * The order of the arguments descriptions defines the order of the exepected arguments.
      */
-    public function describeArgument(string $name, string $description): CommandArgumentBuilderInterface;
+    public function describeArgument(string $name, string $description): ConsoleArgumentBuilderInterface;
 
     /**
      * Adds a new option to the command with a name and a description.
