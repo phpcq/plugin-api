@@ -6,6 +6,7 @@ namespace Phpcq\PluginApi\Version10;
 
 use Phpcq\PluginApi\Version10\Definition\ExecTaskDefinitionBuilderInterface;
 use Phpcq\PluginApi\Version10\Task\OutputWritingTaskInterface;
+use Phpcq\PluginApi\Version10\Task\TaskInterface;
 
 /**
  * This interface describes plugins providing executable tasks.
@@ -29,11 +30,11 @@ interface ExecPluginInterface extends PluginInterface
      * @param list<string>         $arguments   The console arguments passed through to the task.
      * @param EnvironmentInterface $environment The environment.
      *
-     * @return OutputWritingTaskInterface
+     * @return TaskInterface
      */
     public function createExecTask(
         ?string $application,
         array $arguments,
         EnvironmentInterface $environment
-    ): OutputWritingTaskInterface;
+    ): TaskInterface;
 }
