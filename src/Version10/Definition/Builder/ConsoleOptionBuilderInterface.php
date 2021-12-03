@@ -13,6 +13,8 @@ interface ConsoleOptionBuilderInterface
 
     public const VALUE_SEPARATOR_EQUAL_SIGN = '=';
 
+    public const VALUE_SEPARATOR_NONE = '';
+
     /**
      * Mark the option as required. If not defined the option is considered as optional.
      *
@@ -40,6 +42,13 @@ interface ConsoleOptionBuilderInterface
      * @return $this
      */
     public function withShortcut(string $shortcut): self;
+
+    /**
+     * Use the name as shortcut and do not provide a full name option like --name, instead -name is available.
+     *
+     * @return $this
+     */
+    public function withShortcutOnly(): self;
 
     /**
      * Declare that a value is optional for this option. A default value may be defined also.

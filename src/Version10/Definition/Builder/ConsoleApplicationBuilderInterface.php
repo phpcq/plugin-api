@@ -19,7 +19,7 @@ interface ConsoleApplicationBuilderInterface
     public function withDescription(string $description): self;
 
     /**
-     * Describe which value separator is uesed.
+     * Describe which value separator is used.
      *
      * If not defined, PHPCQ assumes that an equal sign is used.
      *
