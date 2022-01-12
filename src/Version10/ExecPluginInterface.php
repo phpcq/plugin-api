@@ -17,6 +17,7 @@ interface ExecPluginInterface extends PluginInterface
      * Describe the exec task which is provided by the plugin.
      *
      * @param ExecTaskDefinitionBuilderInterface $definitionBuilder The exec task definition builder.
+     * @param EnvironmentInterface               $environment       The environment.
      */
     public function describeExecTask(
         ExecTaskDefinitionBuilderInterface $definitionBuilder,

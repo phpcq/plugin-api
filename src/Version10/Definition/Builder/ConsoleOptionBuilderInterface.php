@@ -32,9 +32,13 @@ interface ConsoleOptionBuilderInterface
     /**
      * Declare that a value is required for this option.
      *
+     * You may only declare a value as required or optional.
+     *
+     * @param string|null $name The name of the optional value.
+     *
      * @return self
      */
-    public function withRequiredValue(): self;
+    public function withRequiredValue(?string $name = null): self;
 
     /**
      * Declare a shortcut which may be used as an alias for the option.
@@ -53,7 +57,8 @@ interface ConsoleOptionBuilderInterface
     /**
      * Declare that a value is optional for this option. A default value may be defined also.
      *
-     * If multiple option values are supported, the method may be called multiple times.
+     * You may only declare a value as required or optional. If multiple option values are supported, the method may
+     * be called multiple times.
      *
      * @param string|null $name         The name of the optional value.
      * @param mixed       $defaultValue The default value.
@@ -79,7 +84,7 @@ interface ConsoleOptionBuilderInterface
      *
      * If not defined, PHPCQ assumes that only an equal sign is used.
      *
-     * @param string $separator
+     * @param string $separator The char used to separate option value from the option name.
      *
      * @return mixed
      */
