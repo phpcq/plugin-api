@@ -57,8 +57,8 @@ interface ConsoleOptionBuilderInterface
     /**
      * Declare that a value is optional for this option. A default value may be defined also.
      *
-     * You may only declare a value as required or optional. If multiple option values are supported, the method may
-     * be called multiple times.
+     * You may only declare a value as required or optional. If your option supports multiple named values you're able
+     * to define each of them (e.g. --init [source_dir=src] [level=3]).
      *
      * @param string|null $name         The name of the optional value.
      * @param mixed       $defaultValue The default value.
