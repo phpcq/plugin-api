@@ -1,4 +1,4 @@
-[![Stable Build Status](https://img.shields.io/github/checks-status/phpcq/plugin-api/master)](https://travis-ci.org/phpcq/plugin-api)
+[![Build Status](https://github.com/phpcq/plugin-api/actions/workflows/diagnostics.yml/badge.svg)](https://github.com/phpcq/plugin-api/actions)
 [![Version](https://img.shields.io/packagist/v/phpcq/plugin-api.svg?style=flat-square)](https://packagist.org/packages/phpcq/plugin-api)
 [![License](https://img.shields.io/packagist/l/phpcq/plugin-api.svg?style=flat-square)](https://github.com/phpcq/plugin-api/blob/master/LICENSE)
 [![Downloads](https://img.shields.io/packagist/dt/phpcq/plugin-api.svg?style=flat-square)](https://packagist.org/packages/phpcq/plugin-api)
