@@ -53,7 +53,7 @@ phpcq:
 
 tasks:
   fix:
-    - composer-normalize
+    - composer-normalize-fix
     - phpcbf
   verify:
     - composer-require-checker
@@ -96,3 +96,8 @@ tasks:
       exclude:
         - src/Version10/Configuration/Builder/OptionsBuilderInterface.php
         - src/Version10/Configuration/Builder/OptionsListOptionBuilderInterface.php
+
+  composer-normalize-fix:
+    plugin: composer-normalize
+    config:
+      dry_run: false
