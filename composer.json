@@ -23,11 +23,6 @@
   "require-dev": {
     "phpcq/runner-bootstrap": "^1.0@dev"
   },
-  "extra": {
-    "branch-alias": {
-      "dev-master": "1.x-dev"
-    }
-  },
   "autoload": {
     "psr-4": {
       "Phpcq\\PluginApi\\": "src/"
@@ -36,6 +31,11 @@
   "autoload-dev": {
     "psr-4": {
       "Phpcq\\PluginApi\\Test\\": "tests/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.x-dev"
     }
   }
 }
