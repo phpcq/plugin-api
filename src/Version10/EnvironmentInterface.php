@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Phpcq\PluginApi\Version10;
 
+use Phpcq\PluginApi\Version10\Exception\RuntimeException;
 use Phpcq\PluginApi\Version10\Task\TaskFactoryInterface;
 
 interface EnvironmentInterface
@@ -31,6 +32,11 @@ interface EnvironmentInterface
 
     /**
      * Get the installed directory of the current plugin.
+     *
+     * The installed directory is also the home of the plugin specific generated composer.json. Installed composer
+     * packages will be available in the vendor subdirectory.
+     *
+     * The plugin might
      *
      * @return string
      */
