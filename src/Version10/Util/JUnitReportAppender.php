@@ -130,10 +130,8 @@ final class JUnitReportAppender implements XmlReportAppenderInterface
             case 'error':
             case 'failure':
                 return TaskReportInterface::SEVERITY_MAJOR;
-                break;
             case 'warning':
                 return TaskReportInterface::SEVERITY_MINOR;
-                break;
             case 'skipped':
             case 'system-err':
             case 'system-out':
