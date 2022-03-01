@@ -231,6 +231,10 @@ trait XmlReportAppenderTrait
 
     public static function appendBufferTo(TaskReportInterface $report, string $buffer, string $rootDir): void
     {
+        if ($buffer === '') {
+            return;
+        }
+
         $xmlDocument = new DOMDocument('1.0');
         $xmlDocument->loadXML($buffer);
 

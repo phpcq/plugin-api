@@ -109,7 +109,7 @@ final class JUnitReportAppender implements XmlReportAppenderInterface
              *
              * Text content holds error message.
              */
-            $builder = $report->addDiagnostic($severity, $this->stripRootDir($childNode->nodeValue));
+            $builder = $report->addDiagnostic($severity, $this->stripRootDir((string) $childNode->nodeValue));
             if ($testCase->hasAttribute('file')) {
                 $builder->forFile($this->stripRootDir($testCase->getAttribute('file')))
                     ->forRange((int) $this->getIntXmlAttribute($testCase, 'line'))
@@ -130,10 +130,8 @@ final class JUnitReportAppender implements XmlReportAppenderInterface
             case 'error':
             case 'failure':
                 return TaskReportInterface::SEVERITY_MAJOR;
-                break;
             case 'warning':
                 return TaskReportInterface::SEVERITY_MINOR;
-                break;
             case 'skipped':
             case 'system-err':
             case 'system-out':
