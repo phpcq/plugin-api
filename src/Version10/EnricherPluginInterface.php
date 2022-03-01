@@ -16,11 +16,11 @@ interface EnricherPluginInterface extends ConfigurationPluginInterface
      *
      * The enricher might be used for several plugins and have to handle the plugin depending on its name and version.
      *
-     * @param string                       $pluginName The name of the plugin which is enriched.
-     * @param array                        $pluginConfig The current plugin configuration.
-     * @param PluginConfigurationInterface $config The configuration of the enricher plugin itself.
-     *
-     * @param EnvironmentInterface         $environment The environment for the
+     * @param string                       $pluginName    The name of the plugin which is enriched.
+     * @param string                       $pluginVersion The version of the plugin which is enriched.
+     * @param array                        $pluginConfig  The current plugin configuration.
+     * @param PluginConfigurationInterface $config        The configuration of the enricher plugin itself.
+     * @param EnvironmentInterface         $environment   The environment.
      *
      * @return array
      */
