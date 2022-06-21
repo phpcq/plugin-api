@@ -18,12 +18,16 @@ jobs:
         include:
           - php: 7.4
             phpcq_install: 'install'
+            phpcq_flags: ''
           - php: 8.0
             phpcq_install: 'update'
+            phpcq_flags: ''
           - php: 8.1
             phpcq_install: 'update'
+            phpcq_flags: ''
           - php: 8.2
             phpcq_install: 'update'
+            phpcq_flags: '--exit-0'
 
     steps:
       - name: Pull source
@@ -69,7 +73,7 @@ jobs:
         run: ./vendor/bin/phpcq ${{ matrix.phpcq_install }} -v
 
       - name: Run tests
-        run: ./vendor/bin/phpcq run -v -o github-action -o default
+        run: ./vendor/bin/phpcq run -v -o github-action -o default ${{ matrix.phpcq_flags }}
 
       - name: Upload build directory to artifact
         uses: actions/upload-artifact@v2
