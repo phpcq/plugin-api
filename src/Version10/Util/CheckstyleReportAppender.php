@@ -17,12 +17,12 @@ use function substr;
  *
  * Provides static reading of the log and usage as post processor.
  *
- *  @psalm-type TDiagnosticSeverity = TaskReportInterface::SEVERITY_NONE
- * |TaskReportInterface::SEVERITY_INFO
- * |TaskReportInterface::SEVERITY_MARGINAL
- * |TaskReportInterface::SEVERITY_MINOR
- * |TaskReportInterface::SEVERITY_MAJOR
- * |TaskReportInterface::SEVERITY_FATAL
+ *  @psalm-type TDiagnosticSeverity = TaskReportInterface::SEVERITY_NONE|
+ * TaskReportInterface::SEVERITY_INFO|
+ * TaskReportInterface::SEVERITY_MARGINAL|
+ * TaskReportInterface::SEVERITY_MINOR|
+ * TaskReportInterface::SEVERITY_MAJOR|
+ * TaskReportInterface::SEVERITY_FATAL
  */
 final class CheckstyleReportAppender implements XmlReportAppenderInterface
 {

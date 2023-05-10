@@ -7,8 +7,8 @@ namespace Phpcq\PluginApi\Version10\Output;
 /**
  * Interface describes the output channel to which a task may write to.
  *
- * @psalm-type TOutputVerbosity = OutputInterface::VERBOSITY_QUIET|OutputInterface::VERBOSITY_NORMAL
- * |OutputInterface::VERBOSITY_VERBOSE|OutputInterface::VERBOSITY_VERY_VERBOSE|OutputInterface::VERBOSITY_DEBUG
+ * @psalm-type TOutputVerbosity = OutputInterface::VERBOSITY_QUIET|OutputInterface::VERBOSITY_NORMAL|
+ *   OutputInterface::VERBOSITY_VERBOSE|OutputInterface::VERBOSITY_VERY_VERBOSE|OutputInterface::VERBOSITY_DEBUG
  *
  * @psalm-type TOutputChannel = OutputInterface::CHANNEL_STDOUT|OutputInterface::CHANNEL_STDERR
  */
