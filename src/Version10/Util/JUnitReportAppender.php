@@ -16,12 +16,7 @@ use Phpcq\PluginApi\Version10\Report\TaskReportInterface;
  * Format: https://github.com/windyroad/JUnit-Schema/blob/master/JUnit.xsd
  * At task: http://svn.apache.org/repos/asf/ant/core/trunk/src/main/org/apache/tools/ant/taskdefs/optional/junit/XMLJUnitResultFormatter.java
  *
- * @psalm-type TDiagnosticSeverity = TaskReportInterface::SEVERITY_NONE|
- * TaskReportInterface::SEVERITY_INFO|
- * TaskReportInterface::SEVERITY_MARGINAL|
- * TaskReportInterface::SEVERITY_MINOR|
- * TaskReportInterface::SEVERITY_MAJOR|
- * TaskReportInterface::SEVERITY_FATAL
+ * @psalm-type TDiagnosticSeverity = TaskReportInterface::SEVERITY_NONE|TaskReportInterface::SEVERITY_INFO|TaskReportInterface::SEVERITY_MARGINAL|TaskReportInterface::SEVERITY_MINOR|TaskReportInterface::SEVERITY_MAJOR|TaskReportInterface::SEVERITY_FATAL
  */
 final class JUnitReportAppender implements XmlReportAppenderInterface
 {
@@ -116,7 +111,8 @@ final class JUnitReportAppender implements XmlReportAppenderInterface
                     ->end();
             }
 
-            if ($source = $this->getXmlAttribute($childNode, 'type')) {
+            $source = $this->getXmlAttribute($childNode, 'type');
+            if ($source !== null) {
                 $builder->fromSource($source);
             }
             $builder->end();

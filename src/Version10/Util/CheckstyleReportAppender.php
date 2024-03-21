@@ -17,12 +17,8 @@ use function substr;
  *
  * Provides static reading of the log and usage as post processor.
  *
- *  @psalm-type TDiagnosticSeverity = TaskReportInterface::SEVERITY_NONE|
- * TaskReportInterface::SEVERITY_INFO|
- * TaskReportInterface::SEVERITY_MARGINAL|
- * TaskReportInterface::SEVERITY_MINOR|
- * TaskReportInterface::SEVERITY_MAJOR|
- * TaskReportInterface::SEVERITY_FATAL
+ * phpcs:ignore Generic.Files.LineLength.TooLong
+ * @psalm-type TDiagnosticSeverity = TaskReportInterface::SEVERITY_NONE|TaskReportInterface::SEVERITY_INFO|TaskReportInterface::SEVERITY_MARGINAL|TaskReportInterface::SEVERITY_MINOR| TaskReportInterface::SEVERITY_MAJOR|TaskReportInterface::SEVERITY_FATAL
  */
 final class CheckstyleReportAppender implements XmlReportAppenderInterface
 {
@@ -70,7 +66,9 @@ final class CheckstyleReportAppender implements XmlReportAppenderInterface
                             $this->getIntXmlAttribute($errorNode, 'column')
                         )
                         ->end();
-                if ($source = $this->getXmlAttribute($errorNode, 'source')) {
+
+                $source = $this->getXmlAttribute($errorNode, 'source');
+                if ($source !== null) {
                     $builder->fromSource($source);
                 }
                 $builder->end();
